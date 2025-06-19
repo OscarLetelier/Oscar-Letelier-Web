@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/* import React, { useEffect, useState } from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -77,3 +77,4 @@ const SectionNavigator: React.FC<Props> = ({ sectionIds, offset = 0 }) => {
 };
 
 export default SectionNavigator;
+*/

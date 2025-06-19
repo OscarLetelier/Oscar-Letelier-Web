@@ -1,8 +1,13 @@
 import React, { lazy, Suspense } from "react";
 
 //Componente MainLayout
-import SectionNavigator from "./components/Commons/SectionNavigator/SectionNavigator";
 import MainLayout from "./components/Layout/MainLayout/MainLayout";
+
+//Componentes
+{
+  /* import SectionNavigator from "./components/Commons/SectionNavigator/SectionNavigator"; */
+}
+import SideNav from "./components/Commons/Navbar/SideNav";
 
 //Lazy Load Seccion por Seccion
 const Home = lazy(() => import("./components/Sections/Home/Home"));
@@ -14,21 +19,23 @@ const Skills = lazy(() => import("./components/Sections/Skills/Skills"));
 const Projects = lazy(() => import("./components/Sections/Projects/Projects"));
 
 const App: React.FC = () => {
-  const sectionIds = ["hero", "about", "experience", "skills", "projects"];
+  {
+    /* const sectionIds = ["hero", "about", "experience", "skills", "projects"]; */
+  }
 
   return (
     <>
+      <SideNav />
       <MainLayout>
-        <Suspense fallback={<div>Cargando Secciones...</div>} />
-        <main>
+        <Suspense fallback={<div>Cargando...</div>}>
           <Home />
           <About />
           <Experience />
           <Skills />
           <Projects />
-        </main>
+        </Suspense>
       </MainLayout>
-      <SectionNavigator sectionIds={sectionIds} offset={80} />
+      {/*<SectionNavigator sectionIds={sectionIds} offset={80} />*/}
     </>
   );
 };

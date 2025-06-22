@@ -2,7 +2,7 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 //Boton Volver Arriba
-// import ScrollToTop from "../../Commons/ScrollToTop/ScrollToTop";
+//import ScrollToTop from "../../Commons/ScrollToTop/ScrollToTop";
 
 const Footer: React.FC = () => {
   return (
@@ -39,7 +39,6 @@ const Footer: React.FC = () => {
             <FaEnvelope />
           </a>
         </div>
-        {/* <ScrollToTop /> */}
       </div>
     </footer>
   );

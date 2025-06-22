@@ -8,6 +8,7 @@ import MainLayout from "./components/Layout/MainLayout/MainLayout";
   /* import SectionNavigator from "./components/Commons/SectionNavigator/SectionNavigator"; */
 }
 import SideNav from "./components/Commons/Navbar/SideNav";
+import ScrollToTop from "./components/Commons/ScrollToTop/ScrollToTop";
 
 //Lazy Load Seccion por Seccion
 const Home = lazy(() => import("./components/Sections/Home/Home"));
@@ -25,6 +26,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <ScrollToTop />
       <SideNav />
       <MainLayout>
         <Suspense fallback={<div>Cargando...</div>}>

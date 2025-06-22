@@ -76,7 +76,7 @@ const SideNav: React.FC = () => {
         </div>
         <div className="mt-auto mb-8 flex flex-col items-center gap-6">
           <a
-            href="https://github.com/tuusuario"
+            href="https://github.com/OscarLetelier"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
@@ -85,7 +85,7 @@ const SideNav: React.FC = () => {
             <FaGithub size={22} />
           </a>
           <a
-            href="https://linkedin.com/in/tuusuario"
+            href="https://www.linkedin.com/in/oscar-letelier-molina-6a9216140/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
@@ -94,7 +94,7 @@ const SideNav: React.FC = () => {
             <FaLinkedin size={22} />
           </a>
           <a
-            href="mailto:oscar.tucorreo@gmail.com"
+            href="mailto:oscar.letelier@outlook.com"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
             aria-label="Enviar correo"
           >

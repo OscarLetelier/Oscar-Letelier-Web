@@ -54,7 +54,7 @@ const Home: React.FC = () => {
 
             {/* Nuevo Botón Secundario para GitHub */}
             <a
-              href="https://github.com/OscarLetelier" // ¡IMPORTANTE: Cambia esta URL por la de tu repositorio!
+              href="https://github.com/OscarLetelier"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-transparent hover:bg-emerald-500 text-emerald-400 font-medium hover:text-white border border-emerald-500 px-6 py-3 rounded-xl shadow-md transition-all duration-300"

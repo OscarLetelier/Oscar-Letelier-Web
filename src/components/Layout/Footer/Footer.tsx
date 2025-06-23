@@ -2,7 +2,7 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 //Boton Volver Arriba
-import ScrollToTop from "../../Commons/ScrollToTop/ScrollToTop";
+//import ScrollToTop from "../../Commons/ScrollToTop/ScrollToTop";
 
 const Footer: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         {/* Redes sociales */}
         <div className="flex gap-6 text-xl">
           <a
-            href="https://github.com/tuusuario"
+            href="https://github.com/OscarLetelier"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-emerald-400 transition-colors"
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/tuusuario"
+            href="https://www.linkedin.com/in/oscar-letelier-molina-6a9216140/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-emerald-400 transition-colors"
@@ -33,13 +33,12 @@ const Footer: React.FC = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:oscar.tucorreo@gmail.com"
+            href="mailto:oscar.letelier@outlook.com"
             className="hover:text-emerald-400 transition-colors"
           >
             <FaEnvelope />
           </a>
         </div>
-        <ScrollToTop />
       </div>
     </footer>
   );

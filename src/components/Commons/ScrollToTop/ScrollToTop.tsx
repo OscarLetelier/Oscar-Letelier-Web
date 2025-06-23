@@ -33,7 +33,7 @@ const ScrollToTop: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-emerald-600 hover:bg-emerald-500 transition-colors text-white shadow-lg"
+          className="fixed bottom-35 left-6 z-50 p-3 rounded-full bg-emerald-600 hover:bg-emerald-500 transition-colors text-white shadow-lg"
           aria-label="Volver arriba"
         >
           <FaArrowUp size={18} />

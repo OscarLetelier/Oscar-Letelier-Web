@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+// Definimos el tipo para cada item de navegación para asegurar consistencia
+type NavItem = {
+  label: string;
+  href: string;
+};
 
-  const navItems = [
-    { label: "Inicio", href: "#hero" },
-    { label: "Sobre Mí", href: "#about" },
-    { label: "Estudios", href: "#experience" },
-    { label: "Habilidades", href: "#skills" },
-    { label: "Proyectos", href: "#projects" },
-  ];
+// Definimos los props que recibirá el componente Navbar
+interface NavbarProps {
+  navItems: NavItem[];
+}
+
+const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => setIsOpen((prev) => !prev);
 
@@ -21,7 +24,7 @@ const Navbar: React.FC = () => {
         &lt; Oscar Letelier /&gt;
       </div>
 
-      {/* Menú Desktop */}
+      {/* Menú Desktop: ahora consume los items desde los props */}
       <ul className="hidden md:flex gap-8 text-base font-medium">
         {navItems.map((item) => (
           <li key={item.href}>
@@ -35,12 +38,14 @@ const Navbar: React.FC = () => {
         ))}
       </ul>
 
-      {/* Botón hamburguesa (móvil) */}
+      {/* Botón hamburguesa (móvil) con accesibilidad mejorada */}
       <div className="md:hidden">
         <button
           className="text-3xl text-white hover:text-emerald-400 transition"
           onClick={handleToggle}
-          aria-label="Abrir menú"
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"} // Etiqueta dinámica
+          aria-expanded={isOpen} // Comunica el estado (abierto/cerrado)
+          aria-controls="mobile-menu" // Vincula este botón al menú desplegable
         >
           ☰
         </button>
@@ -50,6 +55,7 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.ul
+            id="mobile-menu" // ID para que aria-controls funcione
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -60,7 +66,7 @@ const Navbar: React.FC = () => {
                 <a
                   href={item.href}
                   className="block text-white hover:text-emerald-400 transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsOpen(false)} // Cierra el menú al hacer clic
                 >
                   {item.label}
                 </a>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaUser } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript } from "react-icons/si";
 
 const Home: React.FC = () => {
@@ -49,12 +49,13 @@ const Home: React.FC = () => {
               href="#about"
               className="inline-flex items-center justify-center bg-transparent hover:bg-emerald-500 text-emerald-400 font-medium hover:text-white border border-emerald-500 px-6 py-3 rounded-xl shadow-md transition-all duration-300"
             >
+              <FaUser className="mr-2" />
               Conóceme más
             </a>
 
             {/* Nuevo Botón Secundario para GitHub */}
             <a
-              href="https://github.com/tuusuario/tu-repositorio" // ¡IMPORTANTE: Cambia esta URL por la de tu repositorio!
+              href="https://github.com/OscarLetelier"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-transparent hover:bg-emerald-500 text-emerald-400 font-medium hover:text-white border border-emerald-500 px-6 py-3 rounded-xl shadow-md transition-all duration-300"

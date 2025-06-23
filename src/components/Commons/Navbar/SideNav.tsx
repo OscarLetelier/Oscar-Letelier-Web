@@ -82,7 +82,7 @@ const SideNav: React.FC = () => {
             className="text-gray-400 hover:text-emerald-400 transition-colors"
             aria-label="GitHub"
           >
-            <FaGithub size={22} />
+            <FaGithub size={26} />
           </a>
           <a
             href="https://www.linkedin.com/in/oscar-letelier-molina-6a9216140/"
@@ -91,14 +91,14 @@ const SideNav: React.FC = () => {
             className="text-gray-400 hover:text-emerald-400 transition-colors"
             aria-label="LinkedIn"
           >
-            <FaLinkedin size={22} />
+            <FaLinkedin size={26} />
           </a>
           <a
             href="mailto:oscar.letelier@outlook.com"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
             aria-label="Enviar correo"
           >
-            <FaEnvelope size={22} />
+            <FaEnvelope size={26} />
           </a>
         </div>
       </nav>

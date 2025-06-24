@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaUser } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript } from "react-icons/si";
 
+//Imagenes
+import oscarImage from "../../../assets/images/oscar.webp";
+
 const Home: React.FC = () => {
   return (
     <section
@@ -73,7 +76,7 @@ const Home: React.FC = () => {
           transition={{ delay: 0.6, duration: 0.7 }}
         >
           <img
-            src="./src/assets/images/oscar.jpg"
+            src={oscarImage}
             alt="Oscar Letelier"
             className="w-80 h-80 object-cover rounded-full border-4 border-emerald-500 shadow-lg hover:scale-105 transition-transform duration-300"
           />

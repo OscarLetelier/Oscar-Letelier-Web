@@ -1,12 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const projects = [
+//Imagenes Proyectos
+import projectOne from "../../../assets/images/portfoliopersonal.webp";
+
+//Interfaz para la estructura de cada proyecto
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Portafolio Personal",
     description: "Mi portafolio desarrollado con React, Tailwind y Vite.",
-    image: "src/assets/images/portfoliopersonal.png",
+    image: projectOne,
     link: "https://github.com/tuusuario/portafolio",
   },
   {

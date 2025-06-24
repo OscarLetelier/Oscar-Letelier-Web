@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+//Ilustracción
+import ilustra from "../../../assets/images/ilustracion.webp";
+
 const About: React.FC = () => {
   return (
     <section
@@ -45,7 +48,7 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="./src/assets/images/ilustracion.jpg"
+              src={ilustra}
               alt="Ilustración desarrollador"
               className="w-80 md:w-96 rounded-2xl shadow-lg border border-gray-800"
             />

@@ -1,7 +1,7 @@
 import React from "react";
 
 //Componentes Layout
-// import Header from "../Header/Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 type MainLayoutProps = {
@@ -11,7 +11,7 @@ type MainLayoutProps = {
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
-      {/*<Header />*/}
+      <Header />
       <main> {children} </main>
       <Footer />
     </>

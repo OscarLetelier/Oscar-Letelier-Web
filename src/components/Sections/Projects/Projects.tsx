@@ -1,63 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-//Imagenes Proyectos
-import projectOne from "../../../assets/images/portfoliopersonal.webp";
-
-//Interfaz para la estructura de cada proyecto
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Portafolio Personal",
-    description: "Mi portafolio desarrollado con React, Tailwind y Vite.",
-    image: projectOne,
-    link: "https://github.com/tuusuario/portafolio",
-  },
-  {
-    id: 2,
-    title: "El Viejo del Rio",
-    description: "Landing Page - Cafeteria",
-    image: "/images/ecommerce.png",
-    link: "https://github.com/tuusuario/ecommerce",
-  },
-  {
-    id: 3,
-    title: "Alorma",
-    description: "Sitio Web Empresa de Servcios de Construcción.",
-    image: "/images/dashboard.png",
-    link: "https://github.com/tuusuario/dashboard",
-  },
-  {
-    id: 4,
-    title: "Kilometro Cero",
-    description:
-      "E-Commerce para empresa de ventas y mantenimiento de bicicleta de alta gama.",
-    image: "/images/dashboard.png",
-    link: "https://github.com/tuusuario/dashboard",
-  },
-  {
-    id: 5,
-    title: "Dashboard Admin",
-    description: "Panel administrativo con gráficas interactivas.",
-    image: "/images/dashboard.png",
-    link: "https://github.com/tuusuario/dashboard",
-  },
-  {
-    id: 6,
-    title: "Dashboard Admin",
-    description: "Panel administrativo con gráficas interactivas.",
-    image: "/images/dashboard.png",
-    link: "https://github.com/tuusuario/dashboard",
-  },
-];
+import { projectsData } from "@/data/projectsData";
 
 const Projects: React.FC = () => {
   return (
@@ -70,12 +13,12 @@ const Projects: React.FC = () => {
           Proyectos Destacados
         </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
+          {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
               className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-emerald-500/20 transition-shadow"
             >

@@ -6,7 +6,7 @@ const FullPageLoader: React.FC = () => {
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-metallic-blu z-[999]">
       {/* 2. Usa el componente ClipLoader */}
       <ClipLoader
-        color="#F97316" // El color naranja de tu marca
+        color="#50C878" // El color naranja de tu marca
         loading={true} // Siempre visible cuando el loader se renderiza
         size={60} // Un tamaño un poco más grande para que se vea bien
         aria-label="Cargando..."

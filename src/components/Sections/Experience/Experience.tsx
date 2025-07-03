@@ -1,34 +1,68 @@
+// src/components/Sections/Experience/Experience.tsx
+
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import TimelineItem from "./TimeLineItem";
 import { experience, education } from "@/data/experienceData";
+
+// Variantes para el contenedor principal de las dos columnas
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3, // Cada columna (Experiencia, Educación) aparecerá con este retraso
+    },
+  },
+};
+
+// Variantes para cada columna individual
+const columnVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.2, // Cada TimelineItem dentro de la columna aparecerá con este retraso
+    },
+  },
+};
 
 const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="bg-gray-950 text-white px-6 py-20 min-h-screen flex items-center justify-center"
+      className="relative bg-gray-950 text-white px-6 py-24 md:py-32 min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="max-w-6xl w-full flex flex-col items-center"
-      >
-        <h3 className="text-4xl font-bold text-center mb-12 text-emerald-400">
-          Experiencia y Estudios
-        </h3>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.1),_transparent_50%)] -z-0" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 w-full">
-          {/* Columna de Experiencia */}
-          <div className="space-y-8">
-            <h4 className="text-2xl font-semibold mb-6 text-center md:text-left">
+      <div className="relative z-10 max-w-6xl w-full flex flex-col items-center">
+        <motion.h3
+          className="text-4xl font-bold text-center mb-16 text-emerald-400"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          Mi Trayectoria
+        </motion.h3>
+
+        {/* Contenedor principal que orquesta la animación de las dos columnas */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 w-full"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* --- Columna de Experiencia --- */}
+          <motion.div className="space-y-10" variants={columnVariants}>
+            <h4 className="text-3xl font-semibold mb-6 text-center md:text-left">
               Experiencia Laboral
             </h4>
             {experience.map((item, index) => (
               <TimelineItem
-                key={index}
+                key={`exp-${index}`}
                 icon={item.icon}
                 title={item.title}
                 subtitle={item.subtitle}
@@ -36,16 +70,16 @@ const Experience: React.FC = () => {
                 description={item.description}
               />
             ))}
-          </div>
+          </motion.div>
 
-          {/* Columna de Educación */}
-          <div className="space-y-8">
-            <h4 className="text-2xl font-semibold mb-6 text-center md:text-left">
+          {/* --- Columna de Educación --- */}
+          <motion.div className="space-y-10" variants={columnVariants}>
+            <h4 className="text-3xl font-semibold mb-6 text-center md:text-left">
               Educación
             </h4>
             {education.map((item, index) => (
               <TimelineItem
-                key={index}
+                key={`edu-${index}`}
                 icon={item.icon}
                 title={item.title}
                 subtitle={item.subtitle}
@@ -53,9 +87,9 @@ const Experience: React.FC = () => {
                 description={item.description}
               />
             ))}
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -20,17 +20,16 @@ export const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: "El Viejo del Rio",
-    description: "Landing Page - Cafeteria",
-    image: "/images/ecommerce.png", // Reemplazar con imagen real
-    link: "https://github.com/OscarLetelier", // Reemplazar con link real
+    title: "Portafolio Personal",
+    description: "Mi portafolio desarrollado con React, Tailwind y Vite.",
+    image: projectOne,
+    link: "https://github.com/OscarLetelier/oscarta",
   },
   {
     id: 3,
-    title: "Alorma",
-    description: "Sitio Web Empresa de Servcios de Construcción.",
-    image: "/images/dashboard.png", // Reemplazar con imagen real
-    link: "https://github.com/OscarLetelier", // Reemplazar con link real
+    title: "Portafolio Personal",
+    description: "Mi portafolio desarrollado con React, Tailwind y Vite.",
+    image: projectOne,
+    link: "https://github.com/OscarLetelier/oscarta",
   },
-  // ... resto de tus proyectos
 ];

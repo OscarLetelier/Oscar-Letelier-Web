@@ -1,42 +1,39 @@
+// src/components/Sections/Skills/Skills.tsx
+
 import React from "react";
+import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skillsData";
+import SkillCategory from "./SkillCategory";
 
 const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="bg-gray-950 text-white px-6 py-20 md:py-32 min-h-screen flex flex-col items-center justify-center"
+      className="relative bg-gray-950 text-white px-6 py-24 md:py-32 overflow-hidden"
     >
-      <div className="max-w-5xl w-full text-center space-y-6">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-emerald-400">
-          Habilidades Técnicas
-        </h2>
-        <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-          Estas son las herramientas y tecnologías que utilizo para construir
-          soluciones de software robustas, eficientes y escalables.
-        </p>
-        <div className="space-y-12 pt-10">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.1),_transparent_50%)] -z-0" />
+
+      <div className="relative z-10 max-w-5xl w-full mx-auto space-y-8">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-emerald-400">
+            Habilidades Técnicas
+          </h2>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto mt-4">
+            Estas son las herramientas y tecnologías que utilizo para construir
+            soluciones de software robustas, eficientes y escalables.
+          </p>
+        </motion.div>
+
+        {/* El contenedor principal ahora solo mapea las categorías al nuevo componente */}
+        <div className="space-y-16 pt-10">
           {Object.entries(skillCategories).map(([category, skills]) => (
-            <div key={category}>
-              <h3 className="text-2xl font-semibold text-white mb-6 text-left">
-                {category}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center justify-center bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 group hover:-translate-y-2"
-                  >
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {skill.icon}
-                    </div>
-                    <span className="text-gray-300 text-sm font-medium tracking-wide group-hover:text-emerald-400 transition-colors duration-300">
-                      {skill.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <SkillCategory key={category} category={category} skills={skills} />
           ))}
         </div>
       </div>

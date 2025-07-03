@@ -1,51 +1,58 @@
+// src/components/Sections/Projects/Projects.tsx
+
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { projectsData } from "@/data/projectsData";
+import ProjectCard from "./ProjectCard"; // Importamos el nuevo componente
+
+// Variantes para el contenedor de la grilla de proyectos
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Retraso entre la aparición de cada tarjeta de proyecto
+    },
+  },
+};
 
 const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="bg-gray-950 text-white px-6 py-20 md:py-32 min-h-screen flex flex-col items-center justify-center"
+      className="relative bg-gray-950 text-white px-6 py-24 md:py-32 min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      <div className="max-w-6xl mx-2">
-        <h2 className="text-4xl font-bold text-emerald-400 mb-10 text-center">
-          Proyectos Destacados
-        </h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projectsData.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-emerald-500/20 transition-shadow"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-emerald-300">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium"
-                >
-                  Ver proyecto →
-                </a>
-              </div>
-            </motion.div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.1),_transparent_50%)] -z-0" />
+
+      <div className="relative z-10 max-w-6xl w-full mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-emerald-400">
+            Proyectos Destacados
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+            Estos son algunos de los proyectos en los que he trabajado,
+            aplicando mi pasión por el desarrollo y el diseño.
+          </p>
+        </motion.div>
+
+        {/* Contenedor animado que orquesta la aparición de las tarjetas */}
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {projectsData.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

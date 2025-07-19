@@ -36,7 +36,7 @@ const Home: React.FC = () => {
     // 3. Fondo mejorado con un gradiente radial sutil para dar profundidad.
     <section
       id="hero"
-      className="relative bg-gray-950 text-white px-6 min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative bg-gray-950 text-white px-6 min-h-screen flex items-center justify-center overflow-hidden pt-4"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.15),_transparent_40%)] -z-0" />
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">

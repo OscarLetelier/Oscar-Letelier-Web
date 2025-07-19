@@ -31,6 +31,7 @@ export const experience: TimelineEntry[] = [
       "Liderazgo del equipo de SSMA, gestionando el programa de seguridad y salud ocupacional.",
       "Implementación y mantenimiento del Sistema de Gestión Integrado.",
       "Responsable de la comunicación con stakeholders y autoridades regulatorias en materia ambiental y de seguridad.",
+      "Verificación y acreditación de empresas contratistas y subcontratistas",
     ],
     icon: <FaBriefcase />,
   },
@@ -55,6 +56,7 @@ export const education: TimelineEntry[] = [
     description: [
       "Certificación en la interpretación y aplicación de las normas ISO 9001, 14001 y 45001.",
       "Capacitación para la planificación, ejecución y seguimiento de auditorías internas de SGI.",
+      "Metodologias de gestión de riesgos ISO 31000",
     ],
     icon: <FaGraduationCap />,
   },

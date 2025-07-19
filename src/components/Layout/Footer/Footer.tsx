@@ -1,9 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-//Boton Volver Arriba
-//import ScrollToTop from "../../Commons/ScrollToTop/ScrollToTop";
-
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-950 text-gray-200 py-10 px-6 border-t border-emerald-600/20">

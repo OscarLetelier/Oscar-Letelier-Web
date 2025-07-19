@@ -59,7 +59,7 @@ const About: React.FC = () => {
             Mi nombre es{" "}
             <span className="font-semibold text-white">
               Oscar Letelier Molina
-            </span>
+            </span>{" "}
             Mi trayectoria comenzó en la optimización de procesos dentro del
             mundo HSEQ, donde desarrollé un profundo pensamiento analítico. Esa
             pasión por la lógica y la eficiencia me llevó de forma natural al

@@ -1,3 +1,5 @@
+// src/components/Sections/Skills/SkillCard.tsx
+
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 
@@ -6,7 +8,6 @@ interface SkillCardProps {
   icon: React.ReactNode;
 }
 
-// Variantes para la animación de entrada de cada tarjeta.
 const cardVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
@@ -24,7 +25,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, icon }) => {
       whileHover={{ y: -6, scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      {/* Efecto de brillo en hover */}
       <div
         className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-300 bg-gradient-to-r from-emerald-600 via-green-500 to-teal-400"
         aria-hidden="true"

@@ -1,11 +1,16 @@
 // src/components/Sections/Skills/Skills.tsx
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skillsData";
 import SkillCategory from "./SkillCategory";
 
 const Skills: React.FC = () => {
+  const categoryNames = Object.keys(skillCategories);
+  const [activeCategory, setActiveCategory] = useState<string>(
+    categoryNames[0]
+  );
+
   return (
     <section
       id="skills"
@@ -13,7 +18,7 @@ const Skills: React.FC = () => {
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.1),_transparent_50%)] -z-0" />
 
-      <div className="relative z-10 max-w-5xl w-full mx-auto space-y-8">
+      <div className="relative z-10 max-w-5xl w-full mx-auto space-y-10">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: -30 }}
@@ -30,11 +35,27 @@ const Skills: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* El contenedor principal ahora solo mapea las categorías al nuevo componente */}
-        <div className="space-y-16 pt-10">
-          {Object.entries(skillCategories).map(([category, skills]) => (
-            <SkillCategory key={category} category={category} skills={skills} />
+        <div className="flex flex-wrap justify-center gap-4">
+          {categoryNames.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 text-sm font-semibold rounded-full transition-colors duration-300 ${
+                activeCategory === category
+                  ? "bg-emerald-500 text-white"
+                  : "bg-white/10 text-gray-300 hover:bg-white/20"
+              }`}
+            >
+              {category}
+            </button>
           ))}
+        </div>
+
+        <div className="pt-6">
+          <SkillCategory
+            category={activeCategory}
+            skills={skillCategories[activeCategory]}
+          />
         </div>
       </div>
     </section>

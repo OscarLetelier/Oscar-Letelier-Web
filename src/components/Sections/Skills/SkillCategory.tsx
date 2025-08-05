@@ -1,14 +1,15 @@
+// src/components/Sections/Skills/SkillCategory.tsx
+
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import SkillCard from "./SkillCard";
-import type { Skill } from "@/data/skillsData"; // Asegúrate de que la interfaz Skill esté exportada
+import type { Skill } from "@/data/skillsData";
 
 interface SkillCategoryProps {
   category: string;
   skills: Skill[];
 }
 
-// Variantes para el contenedor de la grilla, para animar las tarjetas de forma escalonada.
 const gridContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {

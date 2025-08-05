@@ -1,54 +1,70 @@
-# React + TypeScript + Vite
+# Oscar Eduardo Letelier Molina
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📍 **Ubicación:** 8 Oriente 10 Sur #185, Talca, Región del Maule, Chile  
+📞 **Teléfono:** +56 9 8278 0848  
+✉️ **Email:** oscar.letelier@outlook.com
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👨‍💻 Sobre mí
 
-## Expanding the ESLint configuration
+Soy un **Desarrollador de Software** apasionado por la optimización de procesos y la gestión de riesgos. Mi enfoque combina un pensamiento analítico y la automatización de tareas para construir soluciones eficientes, robustas y escalables. Me especializo en backend y frontend con tecnologías modernas, siempre siguiendo buenas prácticas y metodologías ágiles.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🔗 Redes y Portafolio
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- [GitHub](https://github.com/OscarLetelier)
+- [Portafolio Web](https://oscar-letelier-web.vercel.app)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🎓 Formación Académica
+
+### Ingeniería en Informática
+
+**Universidad Autónoma de Chile** — Estudiante último año
+
+- Desarrollo backend con **Java** y **Spring Boot**, utilizando **Gradle** para gestión de dependencias.
+- Análisis y aseguramiento de calidad con **SonarQube**.
+- Despliegue y alojamiento web continuo con **Vercel**.
+- Control de versiones con **Git** y **GitHub**, integrando CI/CD.
+- Metodologías ágiles: **Kanban** y **Scrum**.
+- Desarrollo frontend moderno con **React**, **Vite**, **TypeScript** y **Tailwind CSS**.
+- Diseño de arquitecturas basadas en **Microservicios** y escritura de código limpio y mantenible.
+- Gestión de bases de datos relacionales y no relacionales: **PostgreSQL**, **MySQL**, y **MongoDB**.
+
+### Programa de Estudios
+
+**Alura Latam & Oracle**
+
+- Formación especializada en backend con **Java Spring Boot**.
+- Desarrollo de habilidades blandas y trabajo colaborativo.
+
+### Gestor de Normativa ISO
+
+- Sistemas de Gestión Integrado: **ISO 9001, 14001, 45001, 31000**.
+
+---
+
+## 💼 Experiencia y Habilidades Clave
+
+- **Optimización de Procesos:** Automatización y mejora continua para maximizar eficiencia.
+- **Desarrollo Backend:** APIs RESTful, seguridad, integración con bases de datos y servicios externos.
+- **Frontend Moderno:** Interfaces responsivas y accesibles, UI/UX con tecnologías actuales.
+- **Control de Calidad:** Análisis estático de código, pruebas unitarias y de integración.
+- **Metodologías Ágiles:** Participación activa en sprints, planificación y seguimiento de tareas.
+
+---
+
+## 🚀 Tecnologías
+
+| Backend           | Frontend                | Bases de Datos    | Herramientas y Metodologías |
+| ----------------- | ----------------------- | ----------------- | --------------------------- |
+| Java, Spring Boot | React, Vite, TypeScript | PostgreSQL, MySQL | Git, GitHub, CI/CD          |
+| Gradle            | Tailwind CSS            | MongoDB           | SonarQube, Kanban, Scrum    |
+| REST APIs         | JavaScript              |                   | Vercel, Microservicios      |
+
+---
+
+> **Oscar Eduardo Letelier Molina** — Construyendo soluciones tecnológicas que hacen la diferencia.

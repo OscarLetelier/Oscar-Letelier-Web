@@ -1,5 +1,3 @@
-// src/data/skillsData.ts
-
 import {
   FaReact,
   FaJava,

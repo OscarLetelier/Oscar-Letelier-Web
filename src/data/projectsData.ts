@@ -1,6 +1,4 @@
 import projectOne from "@/assets/images/portfoliopersonal.webp";
-// Asegúrate de que las rutas a tus otras imágenes de proyecto sean correctas
-// import projectTwo from '@/assets/images/project-two.webp';
 
 export interface Project {
   id: number;

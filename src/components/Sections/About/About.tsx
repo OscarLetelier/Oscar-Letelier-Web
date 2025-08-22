@@ -32,10 +32,8 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative bg-gray-950 text-white px-6 py-24 md:py-32 min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative text-white px-6 py-24 md:py-32 min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.1),_transparent_50%)] -z-0" />
-
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto w-full">
         {/* --- Columna de Texto Animada --- */}
         <motion.div

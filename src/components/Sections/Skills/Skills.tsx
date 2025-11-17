@@ -1,7 +1,7 @@
 // src/components/Sections/Skills/Skills.tsx
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { skillCategories } from "@/data/skillsData";
 import SkillCategory from "./SkillCategory";
 
@@ -50,10 +50,13 @@ const Skills: React.FC = () => {
         </div>
 
         <div className="pt-6">
-          <SkillCategory
-            category={activeCategory}
-            skills={skillCategories[activeCategory]}
-          />
+          <AnimatePresence mode="wait">
+            <SkillCategory
+              key={activeCategory} // Clave única para que AnimatePresence detecte el cambio
+              category={activeCategory}
+              skills={skillCategories[activeCategory]}
+            />
+          </AnimatePresence>
         </div>
       </div>
     </section>

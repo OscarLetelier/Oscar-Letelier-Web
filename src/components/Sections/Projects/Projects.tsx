@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="relative bg-gray-950 text-white px-6 py-24 md:py-32 min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative px-6 py-24 md:py-32 min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(4,120,87,0.1),_transparent_50%)] -z-0" />
 

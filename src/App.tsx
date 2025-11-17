@@ -14,7 +14,7 @@ const Experience = lazy(
   () => import("@/components/Sections/Experience/Experience")
 );
 const Skills = lazy(() => import("@/components/Sections/Skills/Skills"));
-// const Projects = lazy(() => import("@/components/Sections/Projects/Projects"));
+const Projects = lazy(() => import("@/components/Sections/Projects/Projects"));
 
 const App: React.FC = () => {
   return (
@@ -24,6 +24,7 @@ const App: React.FC = () => {
       <Suspense fallback={<FullPageLoader />}>
         <About />
         <Experience />
+        <Projects />
         <Skills />
       </Suspense>
     </MainLayout>

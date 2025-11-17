@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"; // Ahora FaEnvelope se utiliza
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
 import { navigationItems } from "./navigation";
-
 import type { NavItemConfig } from "./navigation";
 
 const SideNav: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("#hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-      let currentSection = "";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0,
+      }
+    );
 
-      navigationItems.forEach((item) => {
-        const element = document.getElementById(item.href.substring(1));
-        if (element && element.offsetTop <= scrollPosition) {
-          currentSection = item.href;
-        }
-      });
-      setActiveSection(
-        currentSection ||
-          (navigationItems.length > 0 ? navigationItems[0].href : "")
-      );
-    };
+    navigationItems.forEach((item) => {
+      const element = document.getElementById(item.href.substring(1));
+      if (element) {
+        observer.observe(element);
+      }
+    });
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -40,33 +42,44 @@ const SideNav: React.FC = () => {
     }
   };
 
-  const renderNavItem = (item: NavItemConfig, isDesktop: boolean = false) => (
-    <a
-      key={item.href}
-      href={item.href}
-      onClick={(e) => {
-        e.preventDefault();
-        scrollToSection(item.href);
-      }}
-      className={`group relative flex items-center justify-center p-3 rounded-full transition-colors duration-300
-        ${
-          activeSection === item.href
-            ? "bg-emerald-500/20 text-emerald-400"
-            : "text-gray-400 hover:bg-gray-700 hover:text-white"
+  const renderNavItem = (item: NavItemConfig, isDesktop: boolean = false) => {
+    const isActive = activeSection === item.href;
+    return (
+      <a
+        key={item.href}
+        href={item.href}
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection(item.href);
+        }}
+        className={`group relative flex items-center justify-center p-3 rounded-full transition-colors duration-300 ${
+          isActive ? "text-white" : "text-gray-400 hover:text-white"
         }`}
-      aria-label={item.label}
-    >
-      <item.icon size={isDesktop ? 22 : 26} />
-      {isDesktop && (
-        <span className="absolute left-full ml-4 px-3 py-1.5 text-sm font-medium bg-gray-800 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          {item.label}
+        aria-label={item.label}
+      >
+        {isActive && (
+          <motion.div
+            layoutId={isDesktop ? "desktop-active-pill" : "mobile-active-pill"}
+            className="absolute inset-0 bg-emerald-500/20 rounded-full"
+            style={{ borderRadius: 9999 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        )}
+        <span className="relative z-10">
+          <item.icon size={isDesktop ? 22 : 26} />
         </span>
-      )}
-    </a>
-  );
+        {isDesktop && (
+          <span className="absolute left-full ml-4 px-3 py-1.5 text-sm font-medium bg-gray-800 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            {item.label}
+          </span>
+        )}
+      </a>
+    );
+  };
 
   return (
     <>
+      {/* Desktop Nav */}
       <nav className="hidden md:flex flex-col items-center fixed right-0 top-0 h-full w-24 bg-gray-950/70 backdrop-blur-md z-40 border-l border-emerald-600/10">
         <div className="text-3xl font-bold text-emerald-400 mt-8 mb-16">
           &lt;/&gt;
@@ -75,6 +88,7 @@ const SideNav: React.FC = () => {
           {navigationItems.map((item) => renderNavItem(item, true))}
         </div>
         <div className="mt-auto mb-8 flex flex-col items-center gap-6">
+          {/* Social Links */}
           <a
             href="https://github.com/OscarLetelier"
             target="_blank"
@@ -103,9 +117,10 @@ const SideNav: React.FC = () => {
         </div>
       </nav>
 
+      {/* Mobile Nav */}
       <nav className="md:hidden fixed bottom-0 left-0 w-full h-20 bg-gray-950/80 backdrop-blur-md z-40 border-t border-emerald-600/10">
         <div className="flex justify-around items-center h-full">
-          {navigationItems.map((item) => renderNavItem(item))}
+          {navigationItems.map((item) => renderNavItem(item, false))}
         </div>
       </nav>
     </>

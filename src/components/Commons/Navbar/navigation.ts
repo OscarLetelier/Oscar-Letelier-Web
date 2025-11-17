@@ -4,7 +4,7 @@ import {
   FaUser,
   FaBook,
   FaCog,
-  // FaProjectDiagram,
+  FaProjectDiagram,
 } from "react-icons/fa";
 
 // Paso 2: Importar los TIPOS usando la sintaxis "import type".
@@ -23,6 +23,6 @@ export const navigationItems: NavItemConfig[] = [
   { label: "Inicio", href: "#hero", icon: FaHome },
   { label: "Sobre Mí", href: "#about", icon: FaUser },
   { label: "Estudios", href: "#experience", icon: FaBook },
-  // { label: "Proyectos", href: "#projects", icon: FaProjectDiagram },
+  { label: "Proyectos", href: "#projects", icon: FaProjectDiagram },
   { label: "Habilidades", href: "#skills", icon: FaCog },
 ];

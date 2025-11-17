@@ -35,15 +35,20 @@ const Experience: React.FC = () => {
       className="relative  text-white px-6 py-24 md:py-32 min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl w-full flex flex-col items-center">
-        <motion.h3
-          className="text-4xl font-bold text-center mb-16 text-emerald-400"
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          Mi Trayectoria
-        </motion.h3>
+          <h3 className="text-4xl font-bold text-emerald-400">
+            Mi Trayectoria
+          </h3>
+          <p className="text-lg text-gray-400 mt-2">
+            Un resumen de mi experiencia profesional y mi formación académica.
+          </p>
+        </motion.div>
 
         {/* Contenedor principal que orquesta la animación de las dos columnas */}
         <motion.div

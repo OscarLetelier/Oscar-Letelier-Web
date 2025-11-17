@@ -11,7 +11,6 @@ interface TimelineItemProps {
   description: string[];
 }
 
-// Variantes para la animación de cada tarjeta individual
 const itemVariants: Variants = {
   hidden: { opacity: 0, x: -30 },
   visible: {
@@ -29,19 +28,19 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   description,
 }) => {
   return (
-    // Cada item es ahora un elemento de 'motion' para animaciones individuales
     <motion.div className="relative pl-12" variants={itemVariants}>
-      {/* Círculo y línea de la línea de tiempo */}
-      <div className="absolute left-0 top-1 flex flex-col items-center">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-800 text-emerald-400 border border-gray-700">
+      {/* Icono y línea de tiempo mejorados */}
+      <div className="absolute left-0 top-1 flex flex-col items-center h-full">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/80 text-emerald-400 border-2 border-emerald-500/30 shadow-lg">
           {icon}
         </span>
-        <div className="h-full w-px bg-gray-700 mt-2"></div>
+        {/* Línea con gradiente */}
+        <div className="mt-2 h-full w-px bg-gradient-to-b from-emerald-500/50 via-emerald-500/20 to-transparent"></div>
       </div>
 
-      {/* Tarjeta de contenido */}
-      <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors duration-300">
-        <p className="text-xs font-semibold text-gray-500 mb-1">{period}</p>
+      {/* Tarjeta de contenido con efecto glassmorphism */}
+      <div className="bg-gray-900/40 backdrop-blur-sm p-6 rounded-lg border border-gray-800 hover:border-emerald-500/50 transition-colors duration-300 shadow-md">
+        <p className="text-xs font-semibold text-gray-400 mb-1">{period}</p>
         <h5 className="font-bold text-white text-lg">{title}</h5>
         <p className="text-emerald-300 text-sm font-medium mb-3">{subtitle}</p>
 

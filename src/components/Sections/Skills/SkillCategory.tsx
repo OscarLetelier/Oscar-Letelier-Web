@@ -10,34 +10,36 @@ interface SkillCategoryProps {
   skills: Skill[];
 }
 
-const gridContainerVariants: Variants = {
-  hidden: { opacity: 0 },
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
+    y: 0,
     transition: {
-      staggerChildren: 0.1,
+      duration: 0.4,
+      staggerChildren: 0.1, // Efecto cascada en las tarjetas
     },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.3 },
   },
 };
 
 const SkillCategory: React.FC<SkillCategoryProps> = ({ category, skills }) => {
   return (
     <motion.div
-      key={category} // La clave también es importante aquí para forzar el re-renderizado
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
+      key={category}
+      role="tabpanel"
+      id={`panel-${category}`}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full"
     >
-      <h3 className="text-3xl font-semibold text-white mb-8 text-left">
-        {category}
-      </h3>
-      <motion.div
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-        variants={gridContainerVariants}
-        initial="hidden"
-        animate="visible" // Cambiado de whileInView a animate para que se active con el padre
-      >
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {skills.map((skill) => (
           <SkillCard
             key={skill.name}
@@ -47,7 +49,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ category, skills }) => {
             description={skill.description}
           />
         ))}
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

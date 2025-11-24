@@ -7,14 +7,15 @@ import ScrollToTop from "@/components/Commons/ScrollToTop/ScrollToTop";
 
 // --- Secciones de la Pagina
 import Home from "@/components/Sections/Home/Home";
-
-//Lazy Load Seccion por Seccion
 const About = lazy(() => import("@/components/Sections/About/About"));
+const Services = lazy(() => import("@/components/Sections/Services/Services"));
 const Experience = lazy(
   () => import("@/components/Sections/Experience/Experience")
 );
 const Skills = lazy(() => import("@/components/Sections/Skills/Skills"));
-const Projects = lazy(() => import("@/components/Sections/Projects/Projects"));
+{
+  /*const Projects = lazy(() => import("@/components/Sections/Projects/Projects"));*/
+}
 
 const App: React.FC = () => {
   return (
@@ -23,8 +24,9 @@ const App: React.FC = () => {
       <Home />
       <Suspense fallback={<FullPageLoader />}>
         <About />
+        <Services />
         <Experience />
-        <Projects />
+        {/*     <Projects /> */}
         <Skills />
       </Suspense>
     </MainLayout>

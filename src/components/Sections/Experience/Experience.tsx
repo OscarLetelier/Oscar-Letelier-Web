@@ -1,29 +1,25 @@
-// src/components/Sections/Experience/Experience.tsx
-
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import TimelineItem from "./TimeLineItem";
 import { experience, education } from "@/data/experienceData";
 
-// Variantes para el contenedor principal de las dos columnas
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3, // Cada columna (Experiencia, Educación) aparecerá con este retraso
+      staggerChildren: 0.3,
     },
   },
 };
 
-// Variantes para cada columna individual
 const columnVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 0.2, // Cada TimelineItem dentro de la columna aparecerá con este retraso
+      staggerChildren: 0.2,
     },
   },
 };
@@ -32,6 +28,7 @@ const Experience: React.FC = () => {
   return (
     <section
       id="experience"
+      aria-labelledby="experience-title"
       className="relative  text-white px-6 py-24 md:py-32 min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 max-w-6xl w-full flex flex-col items-center">
@@ -42,7 +39,10 @@ const Experience: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h3 className="text-4xl font-bold text-emerald-400">
+          <h3
+            id="experience-title"
+            className="text-4xl font-bold text-emerald-400"
+          >
             Mi Trayectoria
           </h3>
           <p className="text-lg text-gray-400 mt-2">
@@ -50,7 +50,6 @@ const Experience: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Contenedor principal que orquesta la animación de las dos columnas */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 w-full"
           variants={containerVariants}
@@ -58,7 +57,6 @@ const Experience: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* --- Columna de Experiencia --- */}
           <motion.div className="space-y-10" variants={columnVariants}>
             <h4 className="text-3xl font-semibold mb-6 text-center md:text-left">
               Experiencia Laboral
@@ -75,7 +73,6 @@ const Experience: React.FC = () => {
             ))}
           </motion.div>
 
-          {/* --- Columna de Educación --- */}
           <motion.div className="space-y-10" variants={columnVariants}>
             <h4 className="text-3xl font-semibold mb-6 text-center md:text-left">
               Educación

@@ -1,10 +1,11 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import type { Project } from "@/data/projectsData";
 
 interface ProjectCardProps {
   project: Project;
+  onOpenModal: (project: Project) => void;
 }
 
 const cardVariants: Variants = {
@@ -16,7 +17,7 @@ const cardVariants: Variants = {
   },
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal }) => {
   return (
     <motion.div
       className="relative group rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 flex flex-col"
@@ -49,21 +50,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
 
-        <div className="mt-auto">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex items-center gap-2 self-start
-              text-emerald-400 font-medium group-hover:text-white 
-              bg-emerald-500/10 group-hover:bg-emerald-500 
-              px-4 py-2 rounded-lg transition-all duration-300
-            "
+        <div className="mt-auto flex gap-4">
+          <button
+            onClick={() => onOpenModal(project)}
+            className="inline-flex items-center gap-2 self-start text-emerald-400 font-medium group-hover:text-white bg-emerald-500/10 group-hover:bg-emerald-500 px-4 py-2 rounded-lg transition-all duration-300"
           >
-            Ver proyecto
-            <FaExternalLinkAlt size={12} />
-          </a>
+            <FaEye size={12} />
+            Ver Detalles
+          </button>
         </div>
       </div>
 

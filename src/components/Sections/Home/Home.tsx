@@ -24,10 +24,10 @@ const Home: React.FC = () => {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-title"
       className="relative px-6 min-h-screen flex items-center justify-center overflow-hidden pt-4"
     >
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
-        {/* Contenido de Texto */}
         <motion.div
           className="space-y-6 text-center md:text-left"
           variants={containerVariants}
@@ -35,6 +35,7 @@ const Home: React.FC = () => {
           animate="visible"
         >
           <motion.h1
+            id="hero-title"
             className="text-4xl md:text-5xl pt-5 font-bold tracking-tight leading-tight"
             variants={itemVariants}
           >
@@ -56,7 +57,6 @@ const Home: React.FC = () => {
             {description}
           </motion.p>
 
-          {/* Iconos de Tecnología */}
           <motion.div
             className="flex gap-4 items-center justify-center md:justify-start pt-2 text-3xl"
             variants={itemVariants}
@@ -72,7 +72,6 @@ const Home: React.FC = () => {
             ))}
           </motion.div>
 
-          {/* Botones de Llamada a la Acción (CTA) */}
           <motion.div
             className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             variants={itemVariants}
@@ -96,7 +95,6 @@ const Home: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Imagen */}
         <motion.div
           className="flex justify-center"
           initial={{ opacity: 0, scale: 0.8 }}

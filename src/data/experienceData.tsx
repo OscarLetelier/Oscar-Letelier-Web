@@ -11,16 +11,16 @@ export interface TimelineEntry {
 
 export const experience: TimelineEntry[] = [
   {
-    title: "Desarrollador Full-Stack",
-    subtitle: "Freelance / Proyectos Propios",
-    period: "2024 - Presente",
+    title: "Desarrollador Full-Stack (Java/React)",
+    subtitle: "Freelance / KuraGym (SaaS Multi-tenant)",
+    period: "2023 - Presente",
     description: [
-      "Desarrollo de soluciones web end-to-end, desde el backend (Java, SpringBoot) hasta el frontend (React, Vite).",
-      "Creación de APIs RESTful seguras y eficientes para la comunicación cliente-servidor.",
-      "Administración y diseño de bases de datos relacionales (PostgreSQL) y no relacionales (MongoDB).",
-      "Despliegue de aplicaciones en plataformas como Vercel y AWS, utilizando contenedores Docker.",
+      "Arquitectura de plataforma SaaS Multi-tenant aplicando enfoque API-First y Arquitectura Hexagonal para garantizar escalabilidad.",
+      "Backend: Desarrollo de API RESTful robusta con Java 21, Spring Boot 3 y Spring Security. Uso de JPA, MapStruct y principios SOLID.",
+      "Frontend: Construcción de SPA moderna con React, TypeScript y Tailwind CSS, implementando Clean Architecture y gestión optimizada de estados.",
+      "Calidad y DevOps: Ejecución de pruebas unitarias (JUnit/Vitest), análisis de código con SonarQube y despliegue contenerizado con Docker.",
     ],
-    icon: <FaBriefcase />,
+    icon: <FaBriefcase />, // Asegúrate de tener importado el ícono
   },
   {
     title:

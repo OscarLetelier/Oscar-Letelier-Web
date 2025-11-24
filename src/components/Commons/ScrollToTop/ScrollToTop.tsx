@@ -1,4 +1,3 @@
-// components/Commons/ScrollToTop.tsx
 import React, { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Mostrar botón si se hace scroll más allá de 300px
   useEffect(() => {
     const toggleVisibility = () => {
       setIsVisible(window.scrollY > 300);
@@ -16,7 +14,6 @@ const ScrollToTop: React.FC = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Función para hacer scroll suave al top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

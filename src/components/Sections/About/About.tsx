@@ -30,10 +30,10 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
+      aria-labelledby="about-title"
       className="relative text-white px-6 py-24 md:py-32 min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto w-full">
-        {/* --- Columna de Texto con Tarjeta Glassmorphism --- */}
         <motion.div
           className="bg-gray-900/40 backdrop-blur-sm p-8 rounded-2xl border border-emerald-500/20 shadow-lg"
           variants={containerVariants}
@@ -42,6 +42,7 @@ const About: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h2
+            id="about-title"
             className="text-4xl md:text-5xl font-bold tracking-tight text-emerald-400 mb-6"
             variants={itemVariants}
           >
@@ -78,7 +79,6 @@ const About: React.FC = () => {
           </motion.blockquote>
         </motion.div>
 
-        {/* --- Columna de la Ilustración Animada --- */}
         <motion.div
           className="flex justify-center"
           initial={{ opacity: 0, y: 50 }}

@@ -33,9 +33,9 @@ export const homeData: HomeData = {
     name: "Oscar Letelier Molina",
     post: "",
   },
-  subtitle: "Convierto ideas en aplicaciones web elegantes y eficientes.",
+  subtitle: "Desarrollador Full-Stack | Transformo tus ideas en realidad digital.",
   description:
-    "Soy un desarrollador que disfruta construyendo soluciones completas, desde la lógica del servidor hasta interfaces de usuario interactivas. Mi objetivo es crear software intuitivo y de alto rendimiento.",
+    "Construyo soluciones web completas y a medida, desde la base de datos hasta el último detalle de la interfaz. Mi enfoque se centra en crear software robusto, escalable y de alto rendimiento que impulse el éxito de tu proyecto.",
   techIcons: [
     { Icon: FaReact, title: "React", color: "text-sky-400" },
     { Icon: SiTailwindcss, title: "Tailwind CSS", color: "text-cyan-400" },
@@ -45,7 +45,7 @@ export const homeData: HomeData = {
   ],
   ctaButtons: [
     {
-      text: "Conóceme más",
+      text: "Sobre mí",
       href: "#about",
       icon: FaUser,
       primary: true,

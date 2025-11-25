@@ -8,7 +8,7 @@ import ScrollToTop from "@/components/Commons/ScrollToTop/ScrollToTop";
 // --- Secciones de la Pagina
 import Home from "@/components/Sections/Home/Home";
 const About = lazy(() => import("@/components/Sections/About/About"));
-const Services = lazy(() => import("@/components/Sections/Services/Services"));
+/* const Services = lazy(() => import("@/components/Sections/Services/Services")); */
 const Experience = lazy(
   () => import("@/components/Sections/Experience/Experience")
 );
@@ -24,9 +24,9 @@ const App: React.FC = () => {
       <Home />
       <Suspense fallback={<FullPageLoader />}>
         <About />
-        <Services />
+        {/*<Services />  */}
         <Experience />
-        {/*     <Projects /> */}
+        {/*<Projects /> */}
         <Skills />
       </Suspense>
     </MainLayout>

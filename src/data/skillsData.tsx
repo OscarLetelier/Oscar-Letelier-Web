@@ -32,35 +32,35 @@ export const skillCategories: Record<string, Skill[]> = {
     {
       name: "React",
       icon: <FaReact className="text-sky-400" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Desarrollo de interfaces interactivas y SPAs con Hooks, Context API y optimización de rendimiento.",
     },
     {
       name: "TypeScript",
       icon: <SiTypescript className="text-blue-500" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Aumento la robustez y escalabilidad del código JavaScript mediante un tipado estático estricto.",
     },
     {
       name: "JavaScript",
       icon: <SiJavascript className="text-yellow-400" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Dominio de ES6+ para lógica de cliente compleja, asincronía y manipulación del DOM.",
     },
     {
       name: "Tailwind CSS",
       icon: <SiTailwindcss className="text-cyan-400" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Diseño de interfaces modernas y responsivas de forma rápida y mantenible con un enfoque utility-first.",
     },
     {
       name: "HTML5",
       icon: <FaHtml5 className="text-orange-500" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Estructura semántica para mejorar la accesibilidad (A11Y) y el SEO de las aplicaciones web.",
     },
@@ -76,14 +76,14 @@ export const skillCategories: Record<string, Skill[]> = {
     {
       name: "Java",
       icon: <FaJava className="text-orange-500" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Desarrollo de aplicaciones robustas del lado del servidor, con un enfoque en la programación orientada a objetos.",
     },
     {
       name: "Spring Boot",
       icon: <SiSpringboot className="text-green-500" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Creación de APIs RESTful seguras y eficientes, microservicios y gestión de dependencias con el ecosistema Spring.",
     },
@@ -115,21 +115,21 @@ export const skillCategories: Record<string, Skill[]> = {
     {
       name: "Git",
       icon: <FaGitAlt className="text-red-500" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Control de versiones distribuido, gestión de ramas (Git Flow), fusiones y resolución de conflictos.",
     },
     {
       name: "GitHub",
       icon: <FaGithub className="text-white" />,
-      level: "Avanzado",
+      level: "Intermedio",
       description:
         "Colaboración en equipo mediante Pull Requests, Actions para CI/CD y gestión de proyectos.",
     },
     {
       name: "Docker",
       icon: <FaDocker className="text-blue-600" />,
-      level: "Intermedio",
+      level: "Familiar",
       description:
         "Contenerización de aplicaciones para garantizar la paridad entre entornos de desarrollo, testing y producción.",
     },

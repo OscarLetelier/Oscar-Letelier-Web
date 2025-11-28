@@ -1,13 +1,9 @@
 import React from "react";
 
-import SideNav from "../../Commons/Navbar/SideNav";
+//import SideNav from "../../Commons/Navbar/SideNav";
 
 const Header: React.FC = () => {
-  return (
-    <header>
-      <SideNav />
-    </header>
-  );
+  return <header>{/*<SideNav />*/}</header>;
 };
 
 export default Header;

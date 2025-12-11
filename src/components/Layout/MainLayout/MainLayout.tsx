@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "../Header/Header";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
 type MainLayoutProps = {
   children: React.ReactNode;
 };
@@ -22,7 +20,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
         <div className="relative z-10 flex flex-col min-h-screen">
           <div className="flex-grow">{children}</div>
-          <SpeedInsights />
         </div>
       </main>
     </>

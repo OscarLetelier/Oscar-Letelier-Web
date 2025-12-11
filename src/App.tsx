@@ -5,6 +5,8 @@ import MainLayout from "@/components/Layout/MainLayout/MainLayout";
 import FullPageLoader from "@/components/Commons/FullPageLoader/FullPageLoader";
 import ScrollToTop from "@/components/Commons/ScrollToTop/ScrollToTop";
 
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 // --- Secciones de la Pagina
 import Home from "@/components/Sections/Home/Home";
 const About = lazy(() => import("@/components/Sections/About/About"));
@@ -29,6 +31,7 @@ const App: React.FC = () => {
         {/*<Projects /> */}
         <Skills />
       </Suspense>
+      <SpeedInsights />
     </MainLayout>
   );
 };

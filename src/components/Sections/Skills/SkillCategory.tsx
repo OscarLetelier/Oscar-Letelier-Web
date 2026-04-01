@@ -1,5 +1,3 @@
-// src/components/Sections/Skills/SkillCategory.tsx
-
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import SkillCard from "./SkillCard";
@@ -11,19 +9,16 @@ interface SkillCategoryProps {
 }
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.4,
-      staggerChildren: 0.1, // Efecto cascada en las tarjetas
-    },
+    transition: { duration: 0.35, staggerChildren: 0.07 },
   },
   exit: {
     opacity: 0,
-    y: -20,
-    transition: { duration: 0.3 },
+    y: -12,
+    transition: { duration: 0.25 },
   },
 };
 
@@ -39,7 +34,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ category, skills }) => {
       exit="exit"
       className="w-full"
     >
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {skills.map((skill) => (
           <SkillCard
             key={skill.name}

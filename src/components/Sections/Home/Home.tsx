@@ -1,79 +1,95 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { homeData } from "@/data/homeData";
 import oscarImage from "@/assets/images/oscar.webp";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const Home: React.FC = () => {
-  const { title, subtitle, description, techIcons, ctaButtons } = homeData;
+  const { title, subtitle, techIcons, ctaButtons } = homeData;
 
   return (
     <section
       id="hero"
       aria-labelledby="hero-title"
-      className="relative px-6 min-h-screen flex items-center justify-center overflow-hidden pt-4"
+      className="relative px-6 min-h-screen flex items-center justify-center pt-4"
     >
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto w-full items-center">
+
+        {/* ── Columna de texto ── */}
         <motion.div
-          className="space-y-6 text-center md:text-left"
+          className="space-y-8 text-center md:text-left"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.h1
-            id="hero-title"
-            className="text-4xl md:text-5xl pt-5 font-bold tracking-tight leading-tight"
+          {/* Badge disponible */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-xs font-mono tracking-widest uppercase"
             variants={itemVariants}
           >
-            {title.pre} <span className="text-emerald-400">{title.name}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            Disponible para proyectos
+          </motion.div>
+
+          {/* Nombre principal */}
+          <motion.h1
+            id="hero-title"
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]"
+            variants={itemVariants}
+          >
+            {title.pre}{" "}
+            <span className="text-emerald-400">{title.name}</span>
             {title.post}
           </motion.h1>
 
-          <motion.h2
-            className="text-2xl md:text-3xl text-gray-300 font-light"
-            variants={itemVariants}
-          >
-            {subtitle}
-          </motion.h2>
-
+          {/* Rol en estilo monospace */}
           <motion.p
-            className="text-lg text-gray-400 leading-relaxed"
+            className="font-mono text-zinc-400 text-base md:text-lg"
             variants={itemVariants}
           >
-            {description}
+            <span className="text-emerald-500">&lt;</span>
+            {subtitle}
+            <span className="text-emerald-500"> /&gt;</span>
           </motion.p>
 
+          {/* Divisor */}
           <motion.div
-            className="flex gap-4 items-center justify-center md:justify-start pt-2 text-3xl"
+            className="w-16 h-[2px] bg-emerald-500 mx-auto md:mx-0"
+            variants={itemVariants}
+          />
+
+          {/* Iconos de tecnologías */}
+          <motion.div
+            className="flex gap-5 items-center justify-center md:justify-start text-3xl"
             variants={itemVariants}
           >
-            {techIcons.map(({ Icon, title, color }, index) => (
+            {techIcons.map(({ Icon, title: iconTitle, color }, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.2, y: -5, rotate: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                title={iconTitle}
+                whileHover={{ y: -6, scale: 1.15 }}
+                transition={{ type: "spring", stiffness: 350 }}
               >
-                <Icon title={title} className={color} />
+                <Icon className={color} />
               </motion.div>
             ))}
           </motion.div>
 
+          {/* CTAs */}
           <motion.div
-            className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             variants={itemVariants}
           >
             {ctaButtons.map((button) => (
@@ -82,39 +98,40 @@ const Home: React.FC = () => {
                 href={button.href}
                 target={button.primary ? "_self" : "_blank"}
                 rel={button.primary ? "" : "noopener noreferrer"}
-                className={`inline-flex items-center justify-center font-medium px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ${
+                className={`inline-flex items-center justify-center gap-2 font-semibold px-7 py-3 rounded-lg transition-all duration-200 ${
                   button.primary
-                    ? "bg-emerald-500 hover:bg-emerald-600 text-white"
-                    : "bg-transparent text-emerald-400 border border-emerald-500 hover:bg-emerald-500/10"
+                    ? "bg-emerald-500 hover:bg-emerald-400 text-black"
+                    : "border border-zinc-700 hover:border-emerald-500 text-zinc-300 hover:text-emerald-400"
                 }`}
               >
-                <button.icon className="mr-2" />
+                <button.icon size={16} />
                 {button.text}
               </a>
             ))}
           </motion.div>
         </motion.div>
 
+        {/* ── Columna de imagen ── */}
         <motion.div
-          className="flex justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
+          className="flex justify-center md:justify-end"
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <motion.img
-            src={oscarImage}
-            alt="Oscar Letelier"
-            className="w-80 h-80 object-cover rounded-full border-4 border-emerald-500/50 shadow-2xl shadow-emerald-900/40"
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          {/* Marco con borde sólido y desplazamiento */}
+          <div className="relative">
+            {/* Sombra / marco decorativo desplazado */}
+            <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border-2 border-emerald-500/40" />
+            <motion.img
+              src={oscarImage}
+              alt="Oscar Letelier"
+              className="relative w-72 h-72 md:w-80 md:h-80 object-cover rounded-2xl border-2 border-zinc-700 grayscale hover:grayscale-0 transition-all duration-500"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
         </motion.div>
+
       </div>
     </section>
   );

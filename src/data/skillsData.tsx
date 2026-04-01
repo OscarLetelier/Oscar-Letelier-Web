@@ -15,10 +15,13 @@ import {
   SiMongodb,
   SiPostgresql,
   SiSpringboot,
-  SiSonarqube,
+  SiSonarqubeserver as SiSonarqube,
+  SiIntercom,
+  SiHubspot,
 } from "react-icons/si";
-import { FaProjectDiagram } from "react-icons/fa";
+import { FaProjectDiagram, FaHeadset } from "react-icons/fa";
 import { BsKanban } from "react-icons/bs";
+import { MdOutlineManageSearch } from "react-icons/md";
 
 export interface Skill {
   name: string;
@@ -33,43 +36,37 @@ export const skillCategories: Record<string, Skill[]> = {
       name: "React",
       icon: <FaReact className="text-sky-400" />,
       level: "Intermedio",
-      description:
-        "Desarrollo de interfaces interactivas y SPAs con Hooks, Context API y optimización de rendimiento.",
+      description: "SPAs con Hooks, Context API y optimización de rendimiento.",
     },
     {
       name: "TypeScript",
       icon: <SiTypescript className="text-blue-500" />,
       level: "Intermedio",
-      description:
-        "Aumento la robustez y escalabilidad del código JavaScript mediante un tipado estático estricto.",
+      description: "Tipado estático estricto para código más robusto y escalable.",
     },
     {
       name: "JavaScript",
       icon: <SiJavascript className="text-yellow-400" />,
       level: "Intermedio",
-      description:
-        "Dominio de ES6+ para lógica de cliente compleja, asincronía y manipulación del DOM.",
+      description: "ES6+ para lógica de cliente, asincronía y manipulación del DOM.",
     },
     {
       name: "Tailwind CSS",
       icon: <SiTailwindcss className="text-cyan-400" />,
       level: "Intermedio",
-      description:
-        "Diseño de interfaces modernas y responsivas de forma rápida y mantenible con un enfoque utility-first.",
+      description: "Interfaces modernas y responsivas con enfoque utility-first.",
     },
     {
       name: "HTML5",
       icon: <FaHtml5 className="text-orange-500" />,
       level: "Intermedio",
-      description:
-        "Estructura semántica para mejorar la accesibilidad (A11Y) y el SEO de las aplicaciones web.",
+      description: "Estructura semántica para accesibilidad (A11Y) y SEO.",
     },
     {
       name: "CSS3",
       icon: <FaCss3Alt className="text-blue-400" />,
       level: "Intermedio",
-      description:
-        "Maquetación con Flexbox y Grid, animaciones y diseño responsivo sin frameworks.",
+      description: "Flexbox, Grid, animaciones y diseño responsivo sin frameworks.",
     },
   ],
   Backend: [
@@ -77,15 +74,13 @@ export const skillCategories: Record<string, Skill[]> = {
       name: "Java",
       icon: <FaJava className="text-orange-500" />,
       level: "Intermedio",
-      description:
-        "Desarrollo de aplicaciones robustas del lado del servidor, con un enfoque en la programación orientada a objetos.",
+      description: "Aplicaciones robustas del lado servidor con POO y diseño SOLID.",
     },
     {
       name: "Spring Boot",
       icon: <SiSpringboot className="text-green-500" />,
       level: "Intermedio",
-      description:
-        "Creación de APIs RESTful seguras y eficientes, microservicios y gestión de dependencias con el ecosistema Spring.",
+      description: "APIs RESTful seguras, microservicios y ecosistema Spring completo.",
     },
   ],
   "Bases de Datos": [
@@ -93,22 +88,19 @@ export const skillCategories: Record<string, Skill[]> = {
       name: "PostgreSQL",
       icon: <SiPostgresql className="text-blue-300" />,
       level: "Intermedio",
-      description:
-        "Diseño de esquemas de bases de datos relacionales, consultas complejas y optimización de rendimiento.",
+      description: "Esquemas relacionales, consultas complejas y optimización.",
     },
     {
       name: "MySQL",
       icon: <SiMysql className="text-sky-600" />,
       level: "Intermedio",
-      description:
-        "Administración y desarrollo sobre una de las bases de datos relacionales más populares del mundo.",
+      description: "Administración y desarrollo sobre bases de datos relacionales.",
     },
     {
       name: "MongoDB",
       icon: <SiMongodb className="text-green-600" />,
       level: "Familiar",
-      description:
-        "Modelado de datos flexible con documentos BSON para aplicaciones que requieren alta velocidad y escalabilidad.",
+      description: "Modelado de datos flexible con BSON para alta velocidad y escala.",
     },
   ],
   "Herramientas y DevOps": [
@@ -116,45 +108,65 @@ export const skillCategories: Record<string, Skill[]> = {
       name: "Git",
       icon: <FaGitAlt className="text-red-500" />,
       level: "Intermedio",
-      description:
-        "Control de versiones distribuido, gestión de ramas (Git Flow), fusiones y resolución de conflictos.",
+      description: "Control de versiones, Git Flow, fusiones y resolución de conflictos.",
     },
     {
       name: "GitHub",
       icon: <FaGithub className="text-white" />,
       level: "Intermedio",
-      description:
-        "Colaboración en equipo mediante Pull Requests, Actions para CI/CD y gestión de proyectos.",
+      description: "Pull Requests, Actions para CI/CD y gestión de proyectos.",
     },
     {
       name: "Docker",
-      icon: <FaDocker className="text-blue-600" />,
+      icon: <FaDocker className="text-blue-500" />,
       level: "Familiar",
-      description:
-        "Contenerización de aplicaciones para garantizar la paridad entre entornos de desarrollo, testing y producción.",
-    },
-  ],
-  "Metodologías y Calidad": [
-    {
-      name: "Scrum",
-      icon: <FaProjectDiagram className="text-rose-400" />,
-      level: "Avanzado",
-      description:
-        "Gestión ágil de proyectos con sprints, retrospectivas, dailies y mejora continua en equipos colaborativos.",
-    },
-    {
-      name: "Kanban",
-      icon: <BsKanban className="text-indigo-400" />,
-      level: "Intermedio",
-      description:
-        "Visualización de flujo de trabajo, control de tareas y mejora de productividad a través de tableros Kanban.",
+      description: "Contenerización para paridad entre entornos de desarrollo y producción.",
     },
     {
       name: "SonarQube",
       icon: <SiSonarqube className="text-pink-500" />,
       level: "Intermedio",
-      description:
-        "Análisis estático de código para mejorar la calidad, detectar bugs, vulnerabilidades y code smells.",
+      description: "Análisis estático para detectar bugs, vulnerabilidades y code smells.",
+    },
+  ],
+  "Operaciones & Soporte": [
+    {
+      name: "Intercom",
+      icon: <SiIntercom className="text-blue-400" />,
+      level: "Intermedio",
+      description: "Gestión de soporte al cliente, atención multicanal y seguimiento de conversaciones.",
+    },
+    {
+      name: "HubSpot",
+      icon: <SiHubspot className="text-orange-400" />,
+      level: "Intermedio",
+      description: "CRM para seguimiento de clientes, gestión de tickets y automatización de flujos.",
+    },
+    {
+      name: "QA Manual",
+      icon: <MdOutlineManageSearch className="text-emerald-400" />,
+      level: "Avanzado",
+      description: "Pruebas manuales de usabilidad, levantamiento y seguimiento de tickets hasta resolución.",
+    },
+    {
+      name: "Soporte al Cliente",
+      icon: <FaHeadset className="text-violet-400" />,
+      level: "Avanzado",
+      description: "Atención y resolución de incidencias, re-instrucción y capacitación en manejo de workflows.",
+    },
+  ],
+  "Metodologías": [
+    {
+      name: "Scrum",
+      icon: <FaProjectDiagram className="text-rose-400" />,
+      level: "Avanzado",
+      description: "Sprints, retrospectivas, dailies y mejora continua en equipos colaborativos.",
+    },
+    {
+      name: "Kanban",
+      icon: <BsKanban className="text-indigo-400" />,
+      level: "Intermedio",
+      description: "Visualización del flujo de trabajo y mejora de productividad con tableros Kanban.",
     },
   ],
 };

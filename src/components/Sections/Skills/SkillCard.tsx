@@ -1,61 +1,77 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { FaInfoCircle } from "react-icons/fa";
 
 interface SkillCardProps {
   name: string;
   icon: React.ReactNode;
-  level: string;
+  level: "Avanzado" | "Intermedio" | "Familiar";
   description: string;
 }
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 15 },
-  },
+// Cuántos de los 3 segmentos se llenan según nivel
+const levelSegments: Record<string, number> = {
+  Avanzado: 3,
+  Intermedio: 2,
+  Familiar: 1,
 };
 
-const SkillCard: React.FC<SkillCardProps> = ({
-  name,
-  icon,
-  level,
-  description,
-}) => {
+const levelColor: Record<string, string> = {
+  Avanzado:   "text-emerald-400",
+  Intermedio: "text-sky-400",
+  Familiar:   "text-zinc-500",
+};
+
+const segmentFill: Record<string, string> = {
+  Avanzado:   "bg-emerald-400",
+  Intermedio: "bg-sky-400",
+  Familiar:   "bg-zinc-600",
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+};
+
+const SkillCard: React.FC<SkillCardProps> = ({ name, icon, level, description }) => {
+  const filled = levelSegments[level] ?? 1;
+
   return (
     <motion.div
       variants={itemVariants}
-      className="group relative h-48 w-full rounded-2xl bg-gray-900/40 border border-white/5 overflow-hidden flex flex-col justify-between"
+      className="group relative flex flex-col p-4 rounded-xl bg-[#161b22] border border-[#30363d] hover:border-emerald-500/60 transition-colors duration-300 cursor-default overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Línea de acento izquierda */}
+      <div className={`absolute left-0 top-3 bottom-3 w-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${segmentFill[level]}`} />
 
-      <div className="absolute top-3 right-3 text-white/20 group-hover:text-emerald-400 transition-colors duration-300">
-        <FaInfoCircle size={14} />
-      </div>
-
-      <div className="relative z-10 p-5 flex flex-col items-center gap-3 transition-all duration-300 group-hover:-translate-y-2">
-        <div className="text-4xl text-gray-300 group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-300 drop-shadow-lg">
+      {/* Icono + nombre */}
+      <div className="flex items-center gap-3 mb-3">
+        <div className="text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
+        <h3 className="font-semibold text-white text-sm leading-tight">{name}</h3>
+      </div>
 
-        <div className="text-center space-y-2">
-          <h3 className="font-bold text-white tracking-wide">{name}</h3>
+      {/* Descripción siempre visible */}
+      <p className="text-[11px] text-zinc-500 leading-relaxed flex-1 mb-3 group-hover:text-zinc-400 transition-colors duration-300">
+        {description}
+      </p>
 
-          <span className="inline-block px-3 py-1 text-xs font-semibold text-emerald-300 bg-emerald-500/10 rounded-full border border-emerald-500/20">
-            {level}
-          </span>
+      {/* Nivel: label + segmentos */}
+      <div className="flex items-center justify-between mt-auto">
+        <span className={`text-[10px] font-semibold uppercase tracking-wider ${levelColor[level]}`}>
+          {level}
+        </span>
+        <div className="flex gap-1">
+          {[1, 2, 3].map((seg) => (
+            <div
+              key={seg}
+              className={`h-1 w-4 rounded-full transition-colors duration-300 ${
+                seg <= filled ? segmentFill[level] : "bg-[#30363d]"
+              }`}
+            />
+          ))}
         </div>
       </div>
-
-      <div className="absolute inset-x-0 bottom-0 z-20 bg-gray-900/95 backdrop-blur-md border-t border-emerald-500/20 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
-        <p className="text-xs text-gray-300 text-center leading-relaxed">
-          {description}
-        </p>
-      </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-emerald-500/20 group-hover:bg-emerald-500 transition-colors duration-300" />
     </motion.div>
   );
 };

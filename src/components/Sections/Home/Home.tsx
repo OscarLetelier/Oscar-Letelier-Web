@@ -71,7 +71,7 @@ const Home: React.FC = () => {
 
           {/* Descripción — antes estaba en homeData pero sin usar */}
           <motion.p
-            className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-md mx-auto md:mx-0"
+            className="text-zinc-400 text-justify text-sm md:text-base leading-relaxed max-w-md mx-auto md:mx-0"
             variants={itemVariants}
           >
             {description}

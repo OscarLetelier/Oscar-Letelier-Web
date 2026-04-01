@@ -35,7 +35,7 @@ export const homeData: HomeData = {
   },
   subtitle: "Desarrollador Full-Stack",
   description:
-    "Construyo soluciones web completas y a medida, desde la base de datos hasta el último detalle de la interfaz. Mi enfoque se centra en crear software robusto, escalable y de alto rendimiento que impulse el éxito de tu proyecto.",
+    "Soy un profesional apasionado por el desarrollo y la mejora continua. Me destaco por mi compromiso genuino, mi capacidad de adaptación y por disfrutar el trabajo colaborativo. Más allá del código, busco comprender el propósito de cada desafío para sumar tanto valor estratégico como humano al equipo.",
   techIcons: [
     { Icon: FaReact, title: "React", color: "text-sky-400" },
     { Icon: SiTailwindcss, title: "Tailwind CSS", color: "text-cyan-400" },

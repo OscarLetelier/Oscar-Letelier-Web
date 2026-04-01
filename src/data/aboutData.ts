@@ -23,15 +23,15 @@ export const aboutData: AboutData = {
   title: "Sobre mí",
   paragraphs: [
     {
-      text: "Soy Oscar Letelier Molina, un desarrollador de software con una perspectiva única. Mi experiencia previa en optimización de procesos y sistemas de gestión (HSEQ) me ha dotado de una habilidad excepcional para el análisis, la atención al detalle y la gestión de riesgos, cualidades que aplico en cada línea de código.",
+      text: "Soy Oscar Letelier Molina, y mi camino en el desarrollo de software viene acompañado de mi experiencia previa en optimización de procesos (HSEQ). Este trasfondo me enseñó el valor del análisis, la prevención y la mejora continua, aprendizajes que hoy guían mi forma de trabajar y aportar a un equipo.",
       highlight: "Oscar Letelier Molina",
     },
     {
-      text: "Mi transición al desarrollo Full-Stack fue impulsada por una pasión por la lógica y la eficiencia. Hoy me especializo en crear aplicaciones que no solo funcionan a la perfección, sino que también ofrecen una experiencia de usuario intuitiva y atractiva, asegurando que el producto final aporte valor real y medible.",
+      text: "Mi transición al desarrollo Full-Stack nació de mis ganas de aprender y de crear herramientas útiles. Hoy disfruto desarrollando aplicaciones funcionales y amigables, buscando siempre que mi trabajo se traduzca en soluciones prácticas que aporten valor real tanto a los usuarios como al proyecto.",
     },
   ],
   quote: {
-    text: "Construyo soluciones sólidas en su interior y simples en su exterior. La verdadera calidad técnica se reconoce tanto en la robustez como en la elegancia.",
+    text: "Creo que la tecnología cumple su verdadero propósito cuando logra resolver problemas complejos de manera clara, manteniéndose accesible y abierta a la colaboración.",
   },
   stats: [
     { icon: FaCode,         value: "Full-Stack",      label: "Perfil de desarrollo"  },

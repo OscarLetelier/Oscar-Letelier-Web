@@ -13,8 +13,8 @@ export interface TimelineEntry {
 export const experience: TimelineEntry[] = [
   {
     title: "Operations Specialist",
-    subtitle: "Empresa de Software SaaS",
-    period: "2024 - Presente",
+    subtitle: "Empresa de Software SaaS - Tazki",
+    period: "2025 - Presente",
     current: true,
     description: [
       "Soporte al cliente mediante gestión de canales de atención, garantizando tiempos de respuesta eficientes y resolución de incidencias.",

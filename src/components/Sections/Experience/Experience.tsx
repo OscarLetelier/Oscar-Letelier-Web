@@ -1,29 +1,37 @@
-import React from "react";
-import { motion, type Variants } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import TimelineItem from "./TimeLineItem";
 import { experience, education } from "@/data/experienceData";
 
-const columnVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { staggerChildren: 0.18, duration: 0.5 },
-  },
+type Tab = "laboral" | "educacion";
+
+const tabs: { id: Tab; label: string; icon: typeof FaBriefcase; data: typeof experience }[] = [
+  { id: "laboral",   label: "Experiencia Laboral", icon: FaBriefcase,    data: experience },
+  { id: "educacion", label: "Educación",           icon: FaGraduationCap, data: education  },
+];
+
+const listVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, staggerChildren: 0.12 } },
+  exit:   { opacity: 0, y: -10, transition: { duration: 0.2 } },
 };
 
 const Experience: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<Tab>("laboral");
+  const activeData = tabs.find((t) => t.id === activeTab)!.data;
+
   return (
     <section
       id="experience"
       aria-labelledby="experience-title"
-      className="relative px-6 py-24 md:py-32 min-h-screen flex items-center justify-center"
+      className="relative px-6 py-24 md:py-32"
     >
-      <div className="relative z-10 max-w-6xl w-full flex flex-col items-center">
+      <div className="relative z-10 max-w-3xl mx-auto w-full">
 
-        {/* Encabezado */}
+        {/* ── Encabezado ── */}
         <motion.div
-          className="text-center mb-16 space-y-3"
+          className="space-y-3 mb-10"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,62 +46,70 @@ const Experience: React.FC = () => {
           >
             Mi <span className="text-emerald-400">Trayectoria</span>
           </h2>
-          <div className="w-12 h-[2px] bg-emerald-500 mx-auto" />
-          <p className="text-zinc-500 text-base max-w-xl mx-auto">
-            Experiencia profesional y formación académica.
-          </p>
+          <div className="w-12 h-[2px] bg-emerald-500" />
         </motion.div>
 
-        {/* Dos columnas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 w-full">
+        {/* ── Tabs ── */}
+        <motion.div
+          className="flex gap-2 mb-10"
+          role="tablist"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveTab(tab.id)}
+                className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-200 ${
+                  isActive
+                    ? "bg-emerald-500 border-emerald-500 text-black"
+                    : "bg-transparent border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white hover:bg-[#161b22]"
+                }`}
+              >
+                <tab.icon size={13} className={isActive ? "text-black" : "text-zinc-500"} />
+                <span>{tab.label}</span>
+                <span
+                  className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                    isActive ? "bg-black/20 text-black" : "bg-zinc-800 text-zinc-500"
+                  }`}
+                >
+                  {tab.data.length}
+                </span>
+              </button>
+            );
+          })}
+        </motion.div>
 
+        {/* ── Timeline animada ── */}
+        <AnimatePresence mode="wait">
           <motion.div
-            className="space-y-8"
-            variants={columnVariants}
+            key={activeTab}
+            variants={listVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            animate="visible"
+            exit="exit"
           >
-            <h3 className="text-xl font-bold text-zinc-300 border-b border-zinc-800 pb-3">
-              Experiencia Laboral
-            </h3>
-            {experience.map((item, index) => (
+            {activeData.map((item, index) => (
               <TimelineItem
-                key={`exp-${index}`}
+                key={`${activeTab}-${index}`}
                 icon={item.icon}
                 title={item.title}
                 subtitle={item.subtitle}
                 period={item.period}
                 description={item.description}
                 current={item.current}
+                isLast={index === activeData.length - 1}
               />
             ))}
           </motion.div>
+        </AnimatePresence>
 
-          <motion.div
-            className="space-y-8"
-            variants={columnVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <h3 className="text-xl font-bold text-zinc-300 border-b border-zinc-800 pb-3">
-              Educación
-            </h3>
-            {education.map((item, index) => (
-              <TimelineItem
-                key={`edu-${index}`}
-                icon={item.icon}
-                title={item.title}
-                subtitle={item.subtitle}
-                period={item.period}
-                description={item.description}
-                current={item.current}
-              />
-            ))}
-          </motion.div>
-
-        </div>
       </div>
     </section>
   );

@@ -19,9 +19,10 @@ import {
   SiIntercom,
   SiHubspot,
 } from "react-icons/si";
-import { FaProjectDiagram, FaHeadset } from "react-icons/fa";
+import { FaProjectDiagram, FaHeadset, FaCode, FaServer, FaDatabase, FaTools } from "react-icons/fa";
 import { BsKanban } from "react-icons/bs";
 import { MdOutlineManageSearch } from "react-icons/md";
+import type { IconType } from "react-icons";
 
 export interface Skill {
   name: string;
@@ -29,6 +30,20 @@ export interface Skill {
   level: "Avanzado" | "Intermedio" | "Familiar";
   description: string;
 }
+
+export interface CategoryMeta {
+  icon: IconType;
+  color: string;
+}
+
+export const categoryMeta: Record<string, CategoryMeta> = {
+  "Frontend":              { icon: FaCode,           color: "text-sky-400"     },
+  "Backend":               { icon: FaServer,         color: "text-orange-400"  },
+  "Bases de Datos":        { icon: FaDatabase,       color: "text-blue-400"    },
+  "Herramientas y DevOps": { icon: FaTools,          color: "text-violet-400"  },
+  "Operaciones & Soporte": { icon: FaHeadset,        color: "text-emerald-400" },
+  "Metodologías":          { icon: FaProjectDiagram, color: "text-rose-400"    },
+};
 
 export const skillCategories: Record<string, Skill[]> = {
   Frontend: [

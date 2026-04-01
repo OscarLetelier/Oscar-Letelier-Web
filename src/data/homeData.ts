@@ -33,7 +33,7 @@ export const homeData: HomeData = {
     name: "Oscar Letelier Molina",
     post: "",
   },
-  subtitle: "Desarrollador Full-Stack | Transformo tus ideas en realidad digital.",
+  subtitle: "Desarrollador Full-Stack",
   description:
     "Construyo soluciones web completas y a medida, desde la base de datos hasta el último detalle de la interfaz. Mi enfoque se centra en crear software robusto, escalable y de alto rendimiento que impulse el éxito de tu proyecto.",
   techIcons: [

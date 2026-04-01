@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { homeData } from "@/data/homeData";
+import { socialLinks } from "@/data/socialsData";
 import oscarImage from "@/assets/images/oscar.webp";
 
 const containerVariants: Variants = {
@@ -106,6 +107,26 @@ const Home: React.FC = () => {
               >
                 <button.icon size={16} />
                 {button.text}
+              </a>
+            ))}
+          </motion.div>
+
+          {/* Redes sociales */}
+          <motion.div
+            className="flex items-center gap-1 justify-center md:justify-start"
+            variants={itemVariants}
+          >
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target={link.isEmail ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                aria-label={link.name}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg text-zinc-500 hover:text-emerald-400 hover:bg-emerald-500/10 transition-all duration-200 text-sm"
+              >
+                <link.icon size={17} />
+                <span className="hidden sm:inline">{link.name}</span>
               </a>
             ))}
           </motion.div>

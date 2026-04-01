@@ -65,7 +65,7 @@ const About: React.FC = () => {
           {paragraphs.map((p, index) => (
             <motion.p
               key={index}
-              className="text-zinc-400 leading-relaxed text-base md:text-lg"
+              className="text-zinc-400 leading-relaxed text-base md:text-lg text-justify"
               variants={itemVariants}
             >
               {p.text.split(p.highlight || "").map((part, i) =>

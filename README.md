@@ -8,7 +8,9 @@
 
 ## 👨‍💻 Sobre mí
 
-Soy un **Desarrollador de Software** apasionado por la optimización de procesos y la gestión de riesgos. Mi enfoque combina un pensamiento analítico y la automatización de tareas para construir soluciones eficientes, robustas y escalables. Me especializo en backend y frontend con tecnologías modernas, siempre siguiendo buenas prácticas y metodologías ágiles.
+Soy un **Desarrollador Full-Stack** con una trayectoria que nace en la optimización de procesos (HSEQ). Este trasfondo me enseñó el valor del análisis, la prevención y la mejora continua, aprendizajes que hoy guían mi forma de estructurar código y aportar a un equipo.
+
+Me motiva el aprendizaje constante y disfruto creando herramientas útiles. Busco desarrollar aplicaciones funcionales y amigables, siempre con el objetivo de que mi trabajo se traduzca en soluciones prácticas que aporten valor real tanto a los usuarios como al proyecto.
 
 ---
 
@@ -32,7 +34,7 @@ Soy un **Desarrollador de Software** apasionado por la optimización de procesos
 - Metodologías ágiles: **Kanban** y **Scrum**.
 - Desarrollo frontend moderno con **React**, **Vite**, **TypeScript** y **Tailwind CSS**.
 - Diseño de arquitecturas basadas en **Microservicios** y escritura de código limpio y mantenible.
-- Gestión de bases de datos relacionales y no relacionales: **PostgreSQL**, **MySQL**, y **MongoDB**.
+- Gestión de bases de datos relacionales y no relacionales: **PostgreSQL**, **MySQL** y **MongoDB**.
 
 ### Programa de Estudios
 
@@ -41,19 +43,18 @@ Soy un **Desarrollador de Software** apasionado por la optimización de procesos
 - Formación especializada en backend con **Java Spring Boot**.
 - Desarrollo de habilidades blandas y trabajo colaborativo.
 
-### Gestor de Normativa ISO
+### Formación Previa (HSEQ)
 
-- Sistemas de Gestión Integrado: **ISO 9001, 14001, 45001, 31000**.
+- Gestor de Normativa ISO en Sistemas de Gestión Integrado: **ISO 9001, 14001, 45001, 31000**.
 
 ---
 
-## 💼 Experiencia y Habilidades Clave
+## 💼 Experiencia y Enfoque
 
-- **Optimización de Procesos:** Automatización y mejora continua para maximizar eficiencia.
-- **Desarrollo Backend:** APIs RESTful, seguridad, integración con bases de datos y servicios externos.
-- **Frontend Moderno:** Interfaces responsivas y accesibles, UI/UX con tecnologías actuales.
-- **Control de Calidad:** Análisis estático de código, pruebas unitarias y de integración.
-- **Metodologías Ágiles:** Participación activa en sprints, planificación y seguimiento de tareas.
+- **Mejora Continua:** Aplico mi experiencia en gestión de procesos para identificar oportunidades, prevenir riesgos y optimizar flujos de trabajo en el desarrollo de software.
+- **Desarrollo Backend:** Creación de APIs RESTful integrando bases de datos y servicios, priorizando siempre la claridad lógica y la sostenibilidad del código.
+- **Frontend Práctico:** Desarrollo de interfaces funcionales y accesibles, garantizando que el diseño sea intuitivo y aporte una buena experiencia al usuario.
+- **Colaboración y Calidad:** Participación activa en flujos de trabajo ágiles (Scrum/Kanban) y uso de herramientas de control de calidad para fortalecer el trabajo en equipo.
 
 ---
 
@@ -67,4 +68,4 @@ Soy un **Desarrollador de Software** apasionado por la optimización de procesos
 
 ---
 
-> **Oscar Eduardo Letelier Molina** — Construyendo soluciones tecnológicas que hacen la diferencia.
+> *"Creo que la tecnología cumple su verdadero propósito cuando logra resolver problemas complejos de manera clara, manteniéndose accesible y abierta a la colaboración."*

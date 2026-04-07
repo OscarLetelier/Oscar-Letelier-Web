@@ -24,7 +24,6 @@ const Home: React.FC = () => {
       className="relative px-6 min-h-screen flex items-center justify-center"
     >
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto w-full items-center">
-
         {/* ── Columna de texto ── */}
         <motion.div
           className="space-y-7 text-center md:text-left"
@@ -32,15 +31,6 @@ const Home: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
-          <motion.div
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/8 text-emerald-400 text-xs font-mono tracking-widest uppercase"
-            variants={itemVariants}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Disponible para proyectos
-          </motion.div>
-
           {/* Saludo + nombre — jerarquía en dos niveles */}
           <motion.div variants={itemVariants} className="space-y-1">
             <p className="text-zinc-500 text-base font-light tracking-wide">
@@ -165,7 +155,6 @@ const Home: React.FC = () => {
             <div className="absolute -bottom-4 -right-4 w-8 h-8 rounded-lg border border-emerald-500/15" />
           </div>
         </motion.div>
-
       </div>
     </section>
   );

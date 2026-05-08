@@ -1,4 +1,4 @@
-import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaUser, FaJava } from "react-icons/fa";
+import { FaReact, FaGitAlt, FaGithub, FaUser, FaJava } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiSpringboot } from "react-icons/si";
 import type { IconType } from "react-icons";
 

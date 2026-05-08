@@ -34,9 +34,13 @@ export const aboutData: AboutData = {
     text: "Creo que la tecnología cumple su verdadero propósito cuando logra resolver problemas complejos de manera clara, manteniéndose accesible y abierta a la colaboración.",
   },
   stats: [
-    { icon: FaCode,         value: "Full-Stack",      label: "Perfil de desarrollo"  },
-    { icon: FaRocket,       value: "SaaS",            label: "Entorno de trabajo"    },
-    { icon: FaServer,       value: "Java + React",    label: "Stack principal"       },
-    { icon: FaGraduationCap, value: "En formación",  label: "Ing. en Informática"   },
+    { icon: FaCode, value: "Full-Stack", label: "Perfil de desarrollo" },
+    { icon: FaRocket, value: "SaaS", label: "Entorno de trabajo" },
+    { icon: FaServer, value: "Java + React", label: "Stack principal" },
+    {
+      icon: FaGraduationCap,
+      value: "En formación",
+      label: "Ing. en Informática",
+    },
   ],
 };

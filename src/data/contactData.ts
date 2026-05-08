@@ -21,9 +21,9 @@ export const contactData: ContactData = {
   links: [
     {
       label: "Email",
-      href: "mailto:oscar.letelier.m@gmail.com",
+      href: "mailto:oscar.letelier@outlook.com",
       icon: FaEnvelope,
-      value: "oscar.letelier.m@gmail.com",
+      value: "oscar.letelier@outlook.com",
     },
     {
       label: "LinkedIn",

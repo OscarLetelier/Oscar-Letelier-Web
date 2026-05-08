@@ -46,7 +46,7 @@ const Experience: React.FC = () => {
           >
             Mi <span className="text-emerald-400">Trayectoria</span>
           </h2>
-          <div className="w-12 h-[2px] bg-emerald-500" />
+          <div className="w-12 h-0.5 bg-emerald-500" />
         </motion.div>
 
         {/* ── Tabs ── */}
@@ -103,6 +103,7 @@ const Experience: React.FC = () => {
                 subtitle={item.subtitle}
                 period={item.period}
                 description={item.description}
+                tags={item.tags}
                 current={item.current}
                 isLast={index === activeData.length - 1}
               />

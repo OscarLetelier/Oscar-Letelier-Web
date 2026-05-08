@@ -1,5 +1,5 @@
-import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaUser } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript } from "react-icons/si";
+import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaUser, FaJava } from "react-icons/fa";
+import { SiTailwindcss, SiTypescript, SiSpringboot } from "react-icons/si";
 import type { IconType } from "react-icons";
 
 export interface TechIcon {
@@ -37,10 +37,11 @@ export const homeData: HomeData = {
   description:
     "Soy un profesional apasionado por el desarrollo y la mejora continua. Me destaco por mi compromiso genuino, mi capacidad de adaptación y por disfrutar el trabajo colaborativo. Más allá del código, busco comprender el propósito de cada desafío para sumar tanto valor estratégico como humano al equipo.",
   techIcons: [
+    { Icon: FaJava, title: "Java 21", color: "text-orange-500" },
+    { Icon: SiSpringboot, title: "Spring Boot", color: "text-emerald-500" },
     { Icon: FaReact, title: "React", color: "text-sky-400" },
-    { Icon: SiTailwindcss, title: "Tailwind CSS", color: "text-cyan-400" },
     { Icon: SiTypescript, title: "TypeScript", color: "text-blue-500" },
-    { Icon: FaNodeJs, title: "Node.js", color: "text-green-500" },
+    { Icon: SiTailwindcss, title: "Tailwind CSS", color: "text-cyan-400" },
     { Icon: FaGitAlt, title: "Git", color: "text-red-500" },
   ],
   ctaButtons: [

@@ -7,6 +7,7 @@ interface TimelineItemProps {
   subtitle: string;
   period: string;
   description: string[];
+  tags?: string[];
   current?: boolean;
   isLast?: boolean;
 }
@@ -22,6 +23,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   subtitle,
   period,
   description,
+  tags,
   current,
   isLast,
 }) => {
@@ -82,6 +84,20 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
             </li>
           ))}
         </ul>
+
+        {/* Tags */}
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#21262d]">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 text-[10px] font-mono rounded border border-[#30363d] bg-[#0d1117] text-zinc-500"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
     </motion.div>

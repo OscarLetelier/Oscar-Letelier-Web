@@ -65,8 +65,11 @@ const MobileNavItem: React.FC<NavItemProps> = ({ item, isActive, shouldReduceMot
       {isActive && shouldReduceMotion && (
         <div className="absolute inset-0 bg-emerald-500 rounded-lg" />
       )}
-      <span className="relative z-10">
-        <item.icon size={20} />
+      <span className="relative z-10 flex flex-col items-center gap-0.5">
+        <item.icon size={18} />
+        <span className="text-[8px] font-medium leading-none tracking-wide">
+          {item.mobileLabel}
+        </span>
       </span>
     </a>
   );

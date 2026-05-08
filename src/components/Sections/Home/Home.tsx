@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, type Variants } from "framer-motion";
+import { FaChevronDown } from "react-icons/fa";
 import { homeData } from "@/data/homeData";
 import { socialLinks } from "@/data/socialsData";
 import oscarImage from "@/assets/images/oscar.webp";
+
+const ROLES = ["Desarrollador Full-Stack", "Java Backend Dev", "React Frontend Dev"];
+
+type TypewriterPhase = "typing" | "deleting";
+
+function useTypewriter(words: string[], typingMs = 70, deletingMs = 40, pauseMs = 2200) {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [phase, setPhase] = useState<TypewriterPhase>("typing");
+
+  useEffect(() => {
+    const word = words[index];
+    if (phase === "typing") {
+      if (text.length < word.length) {
+        const t = setTimeout(() => setText(word.slice(0, text.length + 1)), typingMs);
+        return () => clearTimeout(t);
+      }
+      const t = setTimeout(() => setPhase("deleting"), pauseMs);
+      return () => clearTimeout(t);
+    }
+    if (phase === "deleting") {
+      if (text.length > 0) {
+        const t = setTimeout(() => setText((s) => s.slice(0, -1)), deletingMs);
+        return () => clearTimeout(t);
+      }
+      setIndex((i) => (i + 1) % words.length);
+      setPhase("typing");
+    }
+  }, [text, phase, index, words, typingMs, deletingMs, pauseMs]);
+
+  return text;
+}
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -15,7 +48,8 @@ const itemVariants: Variants = {
 };
 
 const Home: React.FC = () => {
-  const { title, subtitle, description, techIcons, ctaButtons } = homeData;
+  const { title, description, techIcons, ctaButtons } = homeData;
+  const typedRole = useTypewriter(ROLES);
 
   return (
     <section
@@ -38,7 +72,7 @@ const Home: React.FC = () => {
             </p>
             <h1
               id="hero-title"
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.0]"
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none"
             >
               {title.name.split(" ").slice(0, 2).join(" ")}
               <span className="text-emerald-400">.</span>
@@ -49,14 +83,15 @@ const Home: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Rol monospace */}
+          {/* Rol monospace — typewriter */}
           <motion.p
             className="font-mono text-zinc-500 text-sm md:text-base"
             variants={itemVariants}
           >
             <span className="text-emerald-500">&lt;</span>
-            {subtitle}
-            <span className="text-emerald-500"> /&gt;</span>
+            <span className="text-zinc-300">{typedRole}</span>
+            <span className="inline-block w-px h-[1em] bg-emerald-400 animate-pulse align-middle mx-0.5" />
+            <span className="text-emerald-500">/&gt;</span>
           </motion.p>
 
           {/* Descripción — antes estaba en homeData pero sin usar */}
@@ -156,6 +191,24 @@ const Home: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* ── Scroll indicator ── */}
+      <motion.a
+        href="#about"
+        aria-label="Scroll hacia abajo"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 text-zinc-600 hover:text-emerald-400 transition-colors duration-300"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <span className="font-mono text-[10px] tracking-widest uppercase">scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <FaChevronDown size={12} />
+        </motion.div>
+      </motion.a>
     </section>
   );
 };

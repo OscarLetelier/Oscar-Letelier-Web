@@ -6,6 +6,7 @@ export interface TimelineEntry {
   subtitle: string;
   period: string;
   description: string[];
+  tags?: string[];
   icon: React.ReactNode;
   current?: boolean;
 }
@@ -23,6 +24,7 @@ export const experience: TimelineEntry[] = [
       "Gestión de tickets y seguimiento de issues en plataformas especializadas, manteniendo trazabilidad y SLA del proceso de soporte.",
       "Uso de herramientas: Intercom (soporte y comunicación), HubSpot (CRM y seguimiento de clientes).",
     ],
+    tags: ["Intercom", "HubSpot", "QA Manual"],
     icon: <FaBriefcase />,
   },
   {
@@ -31,11 +33,12 @@ export const experience: TimelineEntry[] = [
     period: "2023 - Presente",
     current: true,
     description: [
-      "Arquitectura de plataforma SaaS Multi-tenant con enfoque API-First y Arquitectura Hexagonal para garantizar escalabilidad.",
+      "Arquitectura de plataforma SaaS Multi-tenant con enfoque API-First y Domain-Driven Design (DDD), estructurando el dominio en agregados y bounded contexts para garantizar escalabilidad y mantenibilidad.",
       "Backend: API RESTful con Java 21, Spring Boot 3, Spring Security, JPA, MapStruct y principios SOLID.",
       "Frontend: SPA con React, TypeScript y Tailwind CSS, implementando Clean Architecture y gestión optimizada de estado.",
       "Calidad y DevOps: pruebas unitarias (JUnit/Vitest), análisis con SonarQube y despliegue contenerizado con Docker.",
     ],
+    tags: ["Java 21", "Spring Boot", "DDD", "React", "TypeScript", "Docker", "SonarQube"],
     icon: <FaBriefcase />,
   },
   {
@@ -48,6 +51,7 @@ export const experience: TimelineEntry[] = [
       "Comunicación con stakeholders y autoridades regulatorias en materia ambiental y de seguridad.",
       "Verificación y acreditación de empresas contratistas y subcontratistas.",
     ],
+    tags: ["ISO 9001", "ISO 14001", "ISO 45001", "SGI"],
     icon: <FaBriefcase />,
   },
 ];

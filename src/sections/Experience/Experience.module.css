@@ -1,0 +1,18 @@
+.section {
+  padding-block: var(--space-24);
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.timeline {
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-32);
+  }
+}

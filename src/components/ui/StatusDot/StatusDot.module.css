@@ -1,0 +1,36 @@
+.dot {
+  --dot-color: var(--color-success);
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--dot-color);
+}
+
+.fail {
+  --dot-color: var(--color-accent-2);
+}
+
+.ping {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--dot-color);
+  animation: ping 1.8s var(--ease-out) infinite;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ping {
+    display: none;
+  }
+}

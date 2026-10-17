@@ -1,0 +1,41 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: var(--shadow-accent);
+}
+
+.primary:hover {
+  background-color: color-mix(in oklab, var(--color-accent) 88%, var(--color-text));
+}
+
+.ghost {
+  background-color: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text);
+}
+
+.ghost:hover {
+  border-color: var(--color-accent-line);
+  color: var(--color-accent);
+}

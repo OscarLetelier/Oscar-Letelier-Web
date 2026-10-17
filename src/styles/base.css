@@ -1,0 +1,61 @@
+/* Estilos base del documento */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100svh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+/* Foco visible y consistente para navegación con teclado */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Las anclas no quedan tapadas por el header fijo */
+section[id] {
+  scroll-margin-top: var(--header-h);
+}
+
+/* Respetar las preferencias de movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

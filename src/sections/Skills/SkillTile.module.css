@@ -1,0 +1,118 @@
+.tile {
+  display: flex;
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+.list {
+  display: grid;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.skillIcon {
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.skillText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+.skillName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.skillDescription {
+  font-size: var(--text-xs);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* ── Tamaños del bento ── */
+.hero .title {
+  font-size: var(--text-xl);
+}
+
+@media (min-width: 640px) {
+  .hero,
+  .wide {
+    grid-column: span 2;
+  }
+
+  /* Los tiles anchos reparten sus filas en dos columnas */
+  .wide .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-6);
+  }
+
+  .wide .row:nth-last-child(2):nth-child(odd) {
+    border-bottom: 0;
+  }
+
+  .wide .row:last-child {
+    padding-bottom: var(--space-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-row: span 3;
+  }
+}

@@ -1,10 +1,26 @@
 import type { IconType } from "react-icons";
-import { FaCode, FaServer, FaRocket, FaGraduationCap } from "react-icons/fa";
+import { FaCode, FaBug, FaTheaterMasks, FaGraduationCap } from "react-icons/fa";
 
 export interface AboutStat {
   icon: IconType;
   value: string;
   label: string;
+}
+
+export type TerminalLineStatus = "pass" | "fail" | "info";
+
+export interface TerminalLine {
+  status: TerminalLineStatus;
+  text: string;
+  // Dato secundario en tono atenuado (duración, ticket, etc.)
+  meta?: string;
+}
+
+export interface TerminalReport {
+  title: string;
+  command: string;
+  lines: TerminalLine[];
+  summary: { passed: string; failed: string };
 }
 
 export interface AboutData {
@@ -17,6 +33,7 @@ export interface AboutData {
     text: string;
   };
   stats: AboutStat[];
+  terminal: TerminalReport;
 }
 
 export const aboutData: AboutData = {
@@ -27,20 +44,37 @@ export const aboutData: AboutData = {
       highlight: "Oscar Letelier Molina",
     },
     {
-      text: "Mi transición al desarrollo Full-Stack nació de mis ganas de aprender y de crear herramientas útiles. Hoy disfruto desarrollando aplicaciones funcionales y amigables, buscando siempre que mi trabajo se traduzca en soluciones prácticas que aporten valor real tanto a los usuarios como al proyecto.",
+      text: "Mi transición al desarrollo Full-Stack nació de mis ganas de aprender y de crear herramientas útiles. En septiembre de 2026 fui promovido de Operations Specialist a QA Engineer en Tazki, donde uno ambos mundos: automatizo pruebas con Playwright y Playwright MCP, detecto bugs de forma temprana y gestiono su ciclo de vida con tableros Kanban, validando cada cambio en ambientes local y staging.",
+      highlight: "QA Engineer",
+    },
+    {
+      text: "Entender cómo se construye el software me permite reportar hallazgos claros y reproducibles, y colaborar de cerca con el equipo de desarrollo para que cada entrega llegue a producción con la calidad que los usuarios merecen.",
     },
   ],
   quote: {
     text: "Creo que la tecnología cumple su verdadero propósito cuando logra resolver problemas complejos de manera clara, manteniéndose accesible y abierta a la colaboración.",
   },
   stats: [
-    { icon: FaCode, value: "Full-Stack", label: "Perfil de desarrollo" },
-    { icon: FaRocket, value: "SaaS", label: "Entorno de trabajo" },
-    { icon: FaServer, value: "Java + React", label: "Stack principal" },
+    { icon: FaBug, value: "QA Engineer", label: "Rol actual · Tazki" },
+    { icon: FaTheaterMasks, value: "Playwright + MCP", label: "Automatización E2E" },
+    { icon: FaCode, value: "Full-Stack", label: "Java + React" },
     {
       icon: FaGraduationCap,
       value: "En formación",
       label: "Ing. en Informática",
     },
   ],
+  // Reporte ilustrativo de una corrida de pruebas (reemplaza la ilustración)
+  terminal: {
+    title: "staging · e2e",
+    command: "npx playwright test --project=staging",
+    lines: [
+      { status: "pass", text: "login.spec.ts", meta: "1.2s" },
+      { status: "pass", text: "onboarding.spec.ts", meta: "2.1s" },
+      { status: "pass", text: "checkout.spec.ts", meta: "3.4s" },
+      { status: "pass", text: "workflows.spec.ts", meta: "2.8s" },
+      { status: "fail", text: "ticket QA-142", meta: "→ reportado" },
+    ],
+    summary: { passed: "4 passed", failed: "1 bug detectado" },
+  },
 };

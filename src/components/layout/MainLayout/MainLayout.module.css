@@ -1,0 +1,61 @@
+.skipLink {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: var(--z-overlay);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+}
+
+/* Oculto hasta recibir foco con teclado */
+.skipLink:not(:focus-visible) {
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.main {
+  position: relative;
+  z-index: var(--z-base);
+}
+
+.main:focus {
+  outline: none;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glowTop,
+.glowBottom {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+}
+
+.glowTop {
+  top: -12rem;
+  left: -10rem;
+  width: 34rem;
+  height: 34rem;
+  background-color: var(--color-accent-soft);
+}
+
+.glowBottom {
+  bottom: -14rem;
+  right: -8rem;
+  width: 30rem;
+  height: 30rem;
+  background-color: var(--color-accent-2-soft);
+}

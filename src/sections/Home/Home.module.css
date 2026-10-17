@@ -1,0 +1,224 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--header-h));
+  padding-block: var(--space-16);
+}
+
+/* Textura estática: grilla fina solo en el hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--color-border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.content {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+/* ── Línea de estado CI ── */
+.status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  justify-self: start;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-glass);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.statusLabel {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.statusSep {
+  color: var(--color-text-subtle);
+}
+
+/* ── Nombre editorial ── */
+.title {
+  display: grid;
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+}
+
+.greeting {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-text-subtle);
+}
+
+.nameLine {
+  font-size: clamp(4.25rem, 2.2rem + 7.6vw, 9rem);
+}
+
+.dot {
+  color: var(--color-accent);
+}
+
+.nameRest {
+  margin-top: var(--space-3);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-text-muted);
+}
+
+.role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.roleMain {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+}
+
+.roleComplement {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.description {
+  max-width: 38rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.techList,
+.actions,
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.actions {
+  gap: var(--space-3);
+}
+
+.social {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  color: var(--color-text-subtle);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.social:hover {
+  color: var(--color-accent);
+  background-color: var(--color-hover);
+}
+
+/* ── Retrato duotono ── */
+.media {
+  justify-self: center;
+  width: min(20rem, 100%);
+}
+
+.portrait {
+  position: relative;
+}
+
+/* Marco de acento desplazado */
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-xl);
+  transform: translate(var(--space-3), var(--space-3));
+}
+
+.duotone {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-xl);
+  /* Luces casi blancas con un toque leve de acento (duotono sutil) */
+  background-color: color-mix(in srgb, var(--color-accent) 18%, var(--color-text));
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1) brightness(1.05);
+  mix-blend-mode: multiply;
+}
+
+/* Sombras en tinta en vez de negro puro */
+.duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-surface-2);
+  mix-blend-mode: lighten;
+  pointer-events: none;
+}
+
+.caption {
+  margin-top: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+
+.captionIndex {
+  color: var(--color-accent);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--space-16);
+  }
+
+  .media {
+    justify-self: end;
+    width: 100%;
+    max-width: 22rem;
+    margin-top: var(--space-24);
+  }
+}

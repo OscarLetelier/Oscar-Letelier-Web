@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+  border-radius: var(--radius-xl);
+}
+
+.interactive {
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.interactive:hover {
+  border-color: var(--color-accent-line);
+  transform: translateY(-3px);
+}
+
+.highlighted {
+  border-color: var(--color-accent-line);
+}
+
+/* Brillo superior para la tarjeta destacada */
+.highlighted::before {
+  content: "";
+  position: absolute;
+  inset-inline: var(--space-6);
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+}

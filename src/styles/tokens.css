@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Design tokens — única fuente de verdad para colores, espaciado y motion.
+   Los componentes solo consumen tokens semánticos (--color-*), nunca hex.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Paleta "Signal" (por defecto)
+   Base tinta-berenjena cálida + verde ácido (test aprobado) y naranja señal
+   (bug / alerta). Personalidad QA: pass / fail sobre un fondo propio, lejos
+   del clásico GitHub-dark.
+   -------------------------------------------------------------------------- */
+:root {
+  --color-bg: #120e17;
+  --color-surface: #1c1624;
+  --color-surface-2: #261e31;
+  --color-border: #3a2f47;
+  --color-border-soft: #2a2234;
+  --color-text: #f5f0fa;
+  --color-text-muted: #a89cb8;
+  --color-text-subtle: #9a8fac;
+  --color-accent: #c8f031; /* pass */
+  --color-accent-2: #ff7a45; /* bug / señal */
+  --color-accent-contrast: #120e17; /* texto sobre acentos */
+  --color-success: #c8f031;
+  --color-danger: #ff5d73;
+}
+
+/* --------------------------------------------------------------------------
+   Paleta "Classic" (anterior: GitHub-dark + emerald).
+   Para volver a ella: agrega data-theme="classic" al <html> en index.html.
+   -------------------------------------------------------------------------- */
+:root[data-theme="classic"] {
+  --color-bg: #0e1117;
+  --color-surface: #161b22;
+  --color-surface-2: #0d1117;
+  --color-border: #30363d;
+  --color-border-soft: #21262d;
+  --color-text: #ffffff;
+  --color-text-muted: #a1a1aa;
+  --color-text-subtle: #8b8b94;
+  --color-accent: #34d399;
+  --color-accent-2: #10b981;
+  --color-accent-contrast: #000000;
+  --color-success: #34d399;
+  --color-danger: #f87171;
+}
+
+:root {
+  /* Tintes derivados (se recalculan solos al cambiar de paleta) */
+  --color-accent-soft: color-mix(in oklab, var(--color-accent) 14%, transparent);
+  --color-accent-line: color-mix(in oklab, var(--color-accent) 40%, transparent);
+  --color-accent-2-soft: color-mix(in oklab, var(--color-accent-2) 14%, transparent);
+  --color-glass: color-mix(in oklab, var(--color-surface) 72%, transparent);
+  --color-glass-border: color-mix(in oklab, var(--color-border) 75%, transparent);
+  --color-hover: color-mix(in oklab, var(--color-text) 6%, transparent);
+
+  /* Tipografía */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Space Grotesk", var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+
+  --text-2xs: 0.625rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 1.8rem + 2.2vw, 3.25rem);
+
+  /* Espaciado (escala de 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Radios */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 999px;
+
+  /* Sombras */
+  --shadow-lg: 0 20px 40px -20px rgb(0 0 0 / 0.75);
+  --shadow-accent: 0 10px 30px -12px var(--color-accent-line);
+
+  /* Capas */
+  --z-base: 1;
+  --z-header: 50;
+  --z-overlay: 60;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --container-max: 72rem;
+  --container-narrow: 56rem;
+  --gutter: var(--space-4);
+  --header-h: 3.75rem;
+  --blur-glass: 12px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: var(--space-6);
+  }
+}

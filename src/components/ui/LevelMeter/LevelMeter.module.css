@@ -1,0 +1,30 @@
+.meter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.segments {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.segment {
+  width: 0.875rem;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border);
+}
+
+.on {
+  background-color: var(--color-accent);
+}

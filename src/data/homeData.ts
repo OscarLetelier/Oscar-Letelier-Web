@@ -1,11 +1,18 @@
-import { FaReact, FaGitAlt, FaGithub, FaUser, FaJava } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiSpringboot } from "react-icons/si";
+import {
+  FaReact,
+  FaGitAlt,
+  FaGithub,
+  FaUser,
+  FaJava,
+  FaTheaterMasks,
+  FaRobot,
+} from "react-icons/fa";
+import { SiTypescript, SiJira } from "react-icons/si";
 import type { IconType } from "react-icons";
 
 export interface TechIcon {
   Icon: IconType;
   title: string;
-  color: string;
 }
 
 export interface CtaButton {
@@ -19,9 +26,14 @@ export interface HomeData {
   title: {
     pre: string;
     name: string;
-    post: string;
   };
-  subtitle: string;
+  role: string;
+  roleComplement: string;
+  // Línea de estado estilo CI sobre el nombre
+  status: {
+    label: string;
+    items: string[];
+  };
   description: string;
   techIcons: TechIcon[];
   ctaButtons: CtaButton[];
@@ -31,23 +43,28 @@ export const homeData: HomeData = {
   title: {
     pre: "Hola, soy",
     name: "Oscar Letelier Molina",
-    post: "",
   },
-  subtitle: "Desarrollador Full-Stack",
+  role: "QA Engineer",
+  roleComplement: "con base Full-Stack",
+  status: {
+    label: "build passing",
+    items: ["staging", "Sep 2026 — QA Engineer @ Tazki"],
+  },
   description:
-    "Soy un profesional apasionado por el desarrollo y la mejora continua. Me destaco por mi compromiso genuino, mi capacidad de adaptación y por disfrutar el trabajo colaborativo. Más allá del código, busco comprender el propósito de cada desafío para sumar tanto valor estratégico como humano al equipo.",
+    "QA Engineer en Tazki, con base en desarrollo Full-Stack. Automatizo pruebas end-to-end con Playwright y Playwright MCP, detecto bugs en etapas tempranas y gestiono su ciclo de vida en tableros Kanban, validando cada cambio en ambientes local y staging antes de llegar a producción. Busco comprender el propósito de cada desafío para sumar valor estratégico y humano al equipo.",
   techIcons: [
-    { Icon: FaJava, title: "Java 21", color: "text-orange-500" },
-    { Icon: SiSpringboot, title: "Spring Boot", color: "text-emerald-500" },
-    { Icon: FaReact, title: "React", color: "text-sky-400" },
-    { Icon: SiTypescript, title: "TypeScript", color: "text-blue-500" },
-    { Icon: SiTailwindcss, title: "Tailwind CSS", color: "text-cyan-400" },
-    { Icon: FaGitAlt, title: "Git", color: "text-red-500" },
+    { Icon: FaTheaterMasks, title: "Playwright" },
+    { Icon: FaRobot, title: "Playwright MCP" },
+    { Icon: SiJira, title: "Jira / Kanban" },
+    { Icon: FaJava, title: "Java 21" },
+    { Icon: FaReact, title: "React" },
+    { Icon: SiTypescript, title: "TypeScript" },
+    { Icon: FaGitAlt, title: "Git" },
   ],
   ctaButtons: [
     {
-      text: "Sobre mí",
-      href: "#about",
+      text: "Ver trayectoria",
+      href: "#experience",
       icon: FaUser,
       primary: true,
     },

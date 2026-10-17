@@ -100,12 +100,12 @@ Me especializo en construir aplicaciones web robustas con **Java + Spring Boot**
 Este repositorio contiene el código fuente de mi **portafolio personal**, construido con:
 
 ```
-React 19 + TypeScript + Vite + Tailwind CSS 4 + Framer Motion
+React 19 + TypeScript + Vite + CSS Modules + Framer Motion
 ```
 
 **Características:**
 - Diseño responsivo y animaciones fluidas con Framer Motion
-- Secciones: Home · About · Skills · Projects · Contact
+- Secciones: Inicio · Sobre mí · Trayectoria · Habilidades
 - Optimización de rendimiento con Vercel Speed Insights
 - Despliegue continuo en Vercel
 

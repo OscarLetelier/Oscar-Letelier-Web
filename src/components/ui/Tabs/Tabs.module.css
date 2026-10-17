@@ -1,0 +1,98 @@
+/* ── Tablist ── */
+/* Móvil: tira con scroll horizontal interno (sin desbordar la página) */
+.list {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border-radius: var(--radius-lg);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .list {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+.active,
+.active:hover {
+  color: var(--color-accent-contrast);
+}
+
+.indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--color-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+.icon,
+.label,
+.count {
+  position: relative;
+}
+
+.icon {
+  font-size: 0.8125rem;
+}
+
+.count {
+  padding: 0.0625rem var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.active .count {
+  background-color: rgb(0 0 0 / 0.18);
+  color: var(--color-accent-contrast);
+}
+
+/* ── Paneles ── */
+.viewport {
+  display: grid;
+}
+
+.panel {
+  grid-area: 1 / 1;
+  align-self: start;
+  min-width: 0;
+}
+
+.panel[data-exiting] {
+  pointer-events: none;
+}
+
+.panel:focus-visible {
+  outline-offset: 6px;
+}

@@ -1,28 +1,26 @@
 import React, { lazy, Suspense } from "react";
-
-import MainLayout from "@/components/Layout/MainLayout/MainLayout";
-import SectionSkeleton from "@/components/Commons/SectionSkeleton/SectionSkeleton";
-import ScrollToTop from "@/components/Commons/ScrollToTop/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-import Home from "@/components/Sections/Home/Home";
-const About = lazy(() => import("@/components/Sections/About/About"));
-const Skills = lazy(() => import("@/components/Sections/Skills/Skills"));
-const Experience = lazy(() => import("@/components/Sections/Experience/Experience"));
+import MainLayout from "@/components/layout/MainLayout/MainLayout";
+import SectionSkeleton from "@/components/common/SectionSkeleton/SectionSkeleton";
+
+import Home from "@/sections/Home/Home";
+const About = lazy(() => import("@/sections/About/About"));
+const Experience = lazy(() => import("@/sections/Experience/Experience"));
+const Skills = lazy(() => import("@/sections/Skills/Skills"));
 
 const App: React.FC = () => {
   return (
     <MainLayout>
-      <ScrollToTop />
       <Home />
       <Suspense fallback={<SectionSkeleton />}>
         <About />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
-        <Skills />
+        <Experience />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
-        <Experience />
+        <Skills />
       </Suspense>
       <SpeedInsights />
     </MainLayout>

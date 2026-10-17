@@ -1,11 +1,11 @@
+/* Bloque (no flex) para que break-inside funcione dentro del multicolumna */
 .tile {
-  display: flex;
-  min-width: 0;
+  break-inside: avoid;
+  margin-bottom: var(--space-3);
 }
 
 .card {
   display: flex;
-  flex: 1;
   flex-direction: column;
   gap: var(--space-4);
   padding: var(--space-5);
@@ -49,7 +49,7 @@
 
 .row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-3);
   min-width: 0;
   padding-block: var(--space-3);
@@ -63,6 +63,7 @@
 
 .skillIcon {
   flex-shrink: 0;
+  margin-top: 2px;
   font-size: 1rem;
   color: var(--color-text-muted);
 }
@@ -85,34 +86,24 @@
   color: var(--color-text-muted);
 }
 
-/* ── Tamaños del bento ── */
-.hero .title {
+/* ── Categoría destacada: todo el ancho y filas en columnas ── */
+.featured {
+  column-span: all;
+}
+
+.featured .title {
   font-size: var(--text-xl);
 }
 
 @media (min-width: 640px) {
-  .hero,
-  .wide {
-    grid-column: span 2;
-  }
-
-  /* Los tiles anchos reparten sus filas en dos columnas */
-  .wide .list {
+  .featured .list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--space-6);
+    column-gap: var(--space-8);
   }
 
-  .wide .row:nth-last-child(2):nth-child(odd) {
+  /* Sin borde inferior en la última fila de cada columna */
+  .featured .row:nth-last-child(-n + 2) {
     border-bottom: 0;
-  }
-
-  .wide .row:last-child {
-    padding-bottom: var(--space-3);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero {
-    grid-row: span 3;
+    padding-bottom: 0;
   }
 }
